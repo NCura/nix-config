@@ -2,7 +2,7 @@
   stylix.enable = true;
   stylix.base16Scheme = ./../../assets/styles/ncstyle.yaml;
 
-  stylix.image = /home/nicolas/Pictures/wallpapers/jpg4.jpg;
+  stylix.image = ./../../assets/wallpapers/forest.jpg;
 
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Ice";

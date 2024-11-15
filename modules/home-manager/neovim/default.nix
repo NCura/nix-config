@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/nicolas/nixos/modules/home-manager/neovim/files";
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/nicolas/nix-config/modules/home-manager/neovim/files";
 
   home.packages = with pkgs; [
     ### Language servers
