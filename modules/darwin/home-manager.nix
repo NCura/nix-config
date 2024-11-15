@@ -19,6 +19,7 @@ in {
     };
     users.${user} = {...}: {
       imports = [
+        ../shared
       ];
       home = {
         # enableNixpkgsReleaseCheck = false;

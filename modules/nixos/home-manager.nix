@@ -34,12 +34,13 @@ in {
     };
     users.${user} = {...}: {
       imports = [
+        ../shared
+
         ../home-manager/bash
         ../home-manager/fastfetch
         ../home-manager/files
         ../home-manager/git
         ../home-manager/hyprland
-        ../home-manager/kitty
         ../home-manager/neovim
         ../home-manager/obs
         ../home-manager/oh-my-posh
