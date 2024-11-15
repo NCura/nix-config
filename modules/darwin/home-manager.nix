@@ -7,7 +7,7 @@
 in {
   users.users.${user} = {
     name = "${user}";
-    home = "/home/${user}";
+    home = "/Users/${user}";
     isHidden = false;
     shell = pkgs.zsh;
   };
@@ -30,7 +30,7 @@ in {
         # ];
         stateVersion = "23.11";
         username = "${user}";
-        homeDirectory = "/home/${user}";
+        homeDirectory = "/Users/${user}";
       };
     };
   };
