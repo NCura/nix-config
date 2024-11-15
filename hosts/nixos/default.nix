@@ -1,29 +1,26 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/nixos/aliases.nix
-    ./../../modules/nixos/app-images.nix
-    ./../../modules/nixos/audio.nix
-    ./../../modules/nixos/bluetooth.nix
-    ./../../modules/nixos/internationalisation.nix
-    ./../../modules/nixos/main-user.nix
-    ./../../modules/nixos/ollama.nix
-    ./../../modules/nixos/polkit.nix
-    ./../../modules/nixos/printing.nix
-    ./../../modules/nixos/session-variables.nix
-    ./../../modules/nixos/steam.nix
-    ./../../modules/nixos/stylix.nix
-    ./../../modules/nixos/system-packages.nix
-    ./../../modules/nixos/virtualization.nix
-    ./../../modules/nixos/wordpress.nix
-    ./../../modules/nixos/xdg-portal.nix
-   # inputs.home-manager.nixosModules.default
-   ../../modules/nixos/home-manager.nix
+    ../../modules/nixos/aliases.nix
+    ../../modules/nixos/app-images.nix
+    ../../modules/nixos/audio.nix
+    ../../modules/nixos/bluetooth.nix
+    ../../modules/nixos/internationalisation.nix
+    ../../modules/nixos/home-manager.nix
+    ../../modules/nixos/ollama.nix
+    ../../modules/nixos/polkit.nix
+    ../../modules/nixos/printing.nix
+    ../../modules/nixos/session-variables.nix
+    ../../modules/nixos/steam.nix
+    ../../modules/nixos/stylix.nix
+    ../../modules/nixos/system-packages.nix
+    ../../modules/nixos/virtualization.nix
+    ../../modules/nixos/wordpress.nix
+    ../../modules/nixos/xdg-portal.nix
   ];
 
   system.stateVersion = "23.11";

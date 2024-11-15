@@ -1,8 +1,12 @@
 {
-  description = "NC's flake";
+  description = "NC's flake for nixOS and macOS";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,18 +20,31 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
+  outputs = {
+    nixpkgs,
+    nix-darwin,
+    stylix,
+    home-manager,
+    ...
+  } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs;
       };
       modules = [
-        inputs.stylix.nixosModules.stylix
-        inputs.home-manager.nixosModules.home-manager
+        stylix.nixosModules.stylix
+        home-manager.nixosModules.home-manager
         ./hosts/nixos
+      ];
+    };
+
+    darwinConfigurations.NCMBP14 = nix-darwin.lib.darwinSystem {
+      specialArgs = {
+        inherit inputs;
+      };
+      modules = [
+        home-manager.darwinModules.home-manager
+        ./hosts/darwin
       ];
     };
   };

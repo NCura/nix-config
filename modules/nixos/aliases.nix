@@ -10,8 +10,8 @@
     grep = "grep --color=auto";
 
     nr = "sudo nixos-rebuild switch --flake ~/nix-config/.";
-    nfu = "sudo nix flake update ~/nix-config/";
-    ne = "~/bin/open-neovide.sh ~/nix-config";
+    nfu = "sudo nix flake update --flake ~/nix-config/";
+    ne = "cd ~/nix-config && nvim";
     nd = "nix develop";
     ngc = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
 

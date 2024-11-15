@@ -1,14 +1,6 @@
-{
-  pkgs,
-  home-manager,
-  inputs,
-  ...
-}: let
+{inputs, ...}: let
   user = "nicolas";
 in {
-  #
-  # programs.home-manager.enable = true;
-
   users.users.${user} = {
     name = "${user}";
     home = "/home/${user}";
@@ -38,34 +30,34 @@ in {
   home-manager = {
     useGlobalPkgs = true;
     extraSpecialArgs = {
-	inherit inputs;
-	};
-    users.${user} = {...}:{
-        imports = [
-          ../home-manager/bash
-          ../home-manager/fastfetch
-          ../home-manager/files
-          ../home-manager/git
-          ../home-manager/hyprland
-          ../home-manager/kitty
-          ../home-manager/neovim
-          ../home-manager/obs
-          ../home-manager/oh-my-posh
-          # ./../../modules/home-manager/qutebrowser
-          ../home-manager/ranger
-          ../home-manager/rofi
-          ../home-manager/swappy
-          ../home-manager/swaync
-          # ./../../modules/home-manager/tmux
-          ../home-manager/waybar
-          # ./../../modules/home-manager/zellij
-          ../home-manager/zoxide
+      inherit inputs;
+    };
+    users.${user} = {...}: {
+      imports = [
+        ../home-manager/bash
+        ../home-manager/fastfetch
+        ../home-manager/files
+        ../home-manager/git
+        ../home-manager/hyprland
+        ../home-manager/kitty
+        ../home-manager/neovim
+        ../home-manager/obs
+        ../home-manager/oh-my-posh
+        # ./../../modules/home-manager/qutebrowser
+        ../home-manager/ranger
+        ../home-manager/rofi
+        ../home-manager/swappy
+        ../home-manager/swaync
+        # ./../../modules/home-manager/tmux
+        ../home-manager/waybar
+        # ./../../modules/home-manager/zellij
+        ../home-manager/zoxide
 
-          ../home-manager/default-applications.nix
-          ../home-manager/gtk-qt.nix
-          ../home-manager/others.nix
-          ../home-manager/packages.nix
-        ];
+        ../home-manager/default-applications.nix
+        ../home-manager/gtk-qt.nix
+        ../home-manager/others.nix
+        ../home-manager/packages.nix
+      ];
       home = {
         stateVersion = "23.11";
         username = "${user}";
