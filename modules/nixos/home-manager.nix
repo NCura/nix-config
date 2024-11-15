@@ -39,7 +39,6 @@ in {
         ../home-manager/bash
         ../home-manager/fastfetch
         ../home-manager/files
-        ../home-manager/git
         ../home-manager/hyprland
         ../home-manager/neovim
         ../home-manager/obs
