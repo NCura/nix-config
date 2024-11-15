@@ -37,12 +37,10 @@ in {
         ../shared
 
         ../home-manager/bash
-        ../home-manager/fastfetch
         ../home-manager/files
         ../home-manager/hyprland
         ../home-manager/neovim
         ../home-manager/obs
-        ../home-manager/oh-my-posh
         # ./../../modules/home-manager/qutebrowser
         ../home-manager/ranger
         ../home-manager/rofi

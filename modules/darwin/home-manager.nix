@@ -20,6 +20,7 @@ in {
     users.${user} = {...}: {
       imports = [
         ../shared
+        ./zsh
       ];
       home = {
         # enableNixpkgsReleaseCheck = false;
