@@ -4,5 +4,6 @@
     ./git
     ./oh-my-posh
     ./fastfetch
+    ./neovim
   ];
 }

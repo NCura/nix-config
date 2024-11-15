@@ -39,7 +39,6 @@ in {
         ../home-manager/bash
         ../home-manager/files
         ../home-manager/hyprland
-        ../home-manager/neovim
         ../home-manager/obs
         # ./../../modules/home-manager/qutebrowser
         ../home-manager/ranger
