@@ -22,7 +22,8 @@
     ./../../modules/nixos/virtualization.nix
     ./../../modules/nixos/wordpress.nix
     ./../../modules/nixos/xdg-portal.nix
-    inputs.home-manager.nixosModules.default
+   # inputs.home-manager.nixosModules.default
+   ../../modules/nixos/home-manager.nix
   ];
 
   system.stateVersion = "23.11";

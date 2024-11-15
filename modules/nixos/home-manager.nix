@@ -1,6 +1,7 @@
 {
   pkgs,
   home-manager,
+  inputs,
   ...
 }: let
   user = "nicolas";
@@ -36,33 +37,36 @@ in {
   # '';
   home-manager = {
     useGlobalPkgs = true;
-    users.${user} = {
-      home = {
+    extraSpecialArgs = {
+	inherit inputs;
+	};
+    users.${user} = {...}:{
         imports = [
-          ./../../modules/home-manager/bash
-          ./../../modules/home-manager/fastfetch
-          ./../../modules/home-manager/files
-          ./../../modules/home-manager/git
-          ./../../modules/home-manager/hyprland
-          ./../../modules/home-manager/kitty
-          ./../../modules/home-manager/neovim
-          ./../../modules/home-manager/obs
-          ./../../modules/home-manager/oh-my-posh
+          ../home-manager/bash
+          ../home-manager/fastfetch
+          ../home-manager/files
+          ../home-manager/git
+          ../home-manager/hyprland
+          ../home-manager/kitty
+          ../home-manager/neovim
+          ../home-manager/obs
+          ../home-manager/oh-my-posh
           # ./../../modules/home-manager/qutebrowser
-          ./../../modules/home-manager/ranger
-          ./../../modules/home-manager/rofi
-          ./../../modules/home-manager/swappy
-          ./../../modules/home-manager/swaync
+          ../home-manager/ranger
+          ../home-manager/rofi
+          ../home-manager/swappy
+          ../home-manager/swaync
           # ./../../modules/home-manager/tmux
-          ./../../modules/home-manager/waybar
+          ../home-manager/waybar
           # ./../../modules/home-manager/zellij
-          ./../../modules/home-manager/zoxide
+          ../home-manager/zoxide
 
-          ./../../modules/home-manager/default-applications.nix
-          ./../../modules/home-manager/gtk-qt.nix
-          ./../../modules/home-manager/others.nix
-          ./../../modules/home-manager/packages.nix
+          ../home-manager/default-applications.nix
+          ../home-manager/gtk-qt.nix
+          ../home-manager/others.nix
+          ../home-manager/packages.nix
         ];
+      home = {
         stateVersion = "23.11";
         username = "${user}";
         homeDirectory = "/home/${user}";
