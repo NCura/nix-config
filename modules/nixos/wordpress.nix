@@ -23,7 +23,7 @@
           DirectoryIndex index.php
         '';
       };
-      "staging.nicolascura.com.local" = {
+      "nicolascura-staging.com.local" = {
         documentRoot = "/var/lib/www/staging.nicolascura.com";
         extraConfig = ''
           DirectoryIndex index.php
@@ -34,33 +34,11 @@
           </Directory>
         '';
       };
-      "immo.com.local" = {
-        documentRoot = "/home/nicolas/projects/wordpress/immo.com";
+      "local.pidiffusion-staging.com" = {
+        documentRoot = "/var/lib/www/pidiffusion.com";
         extraConfig = ''
           DirectoryIndex index.php
-          <Directory "/home/nicolas/projects/wordpress/immo.com">
-            AllowOverride All
-            Require all granted
-            Options +FollowSymLinks
-          </Directory>
-        '';
-      };
-      "staging.st-patrimoine.com.local" = {
-        documentRoot = "/var/lib/www/staging.st-patrimoine.com";
-        extraConfig = ''
-          DirectoryIndex index.php
-          <Directory "/var/lib/www/staging.st-patrimoine.com">
-            AllowOverride All
-            Require all granted
-            Options +FollowSymLinks
-          </Directory>
-        '';
-      };
-      "staging.st-patrimoine2.com.local" = {
-        documentRoot = "/var/lib/www/staging.st-patrimoine.com";
-        extraConfig = ''
-          DirectoryIndex index.php
-          <Directory "/var/lib/www/staging.st-patrimoine.com">
+          <Directory "/var/lib/www/pidiffusion.com">
             AllowOverride All
             Require all granted
             Options +FollowSymLinks
@@ -84,9 +62,8 @@
 
   networking.hosts = {
     "127.0.0.1" = [
-      "staging.nicolascura.com.local"
-      "staging.st-patrimoine.com.local"
-      "immo.com.local"
+      "nicolascura-staging.com.local"
+      "local.pidiffusion-staging.com"
       "test-wordpress.com.local"
     ];
   };

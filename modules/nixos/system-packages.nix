@@ -55,6 +55,7 @@
     bazecor
     trashy
     devenv
+    synergy
   ];
 
   fonts.packages = with pkgs; [

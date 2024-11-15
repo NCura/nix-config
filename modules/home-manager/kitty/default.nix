@@ -34,8 +34,8 @@
       "ctrl+alt+j" = "kitten pass_keys.py bottom ctrl+j";
       "ctrl+alt+k" = "kitten pass_keys.py top ctrl+k";
       "ctrl+alt+l" = "kitten pass_keys.py right ctrl+l";
-      "ctrl+alt+plus" = "change_font_size all +2.0";
-      "ctrl+alt+minus" = "change_font_size all -2.0";
+      "ctrl+alt+plus" = "change_font_size all +1.0";
+      "ctrl+alt+minus" = "change_font_size all -1.0";
       "ctrl+n" = "new_window";
 
       "f5" = "launch --location=hsplit";

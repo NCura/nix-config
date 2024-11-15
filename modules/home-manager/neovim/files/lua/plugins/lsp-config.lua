@@ -245,9 +245,9 @@ return {
 			-- 	capabilities = capabilities,
 			-- 	filetypes = { "html", "php", "css", "sass", "scss", "javascript", "rust" },
 			-- })
-			lspconfig.typos_lsp.setup({
-				capabilities = capabilities,
-			})
+			-- lspconfig.typos_lsp.setup({
+			-- 	capabilities = capabilities,
+			-- })
 		end,
 	},
 }

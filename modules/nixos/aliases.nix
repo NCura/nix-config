@@ -24,8 +24,9 @@
     ncreboot = "sudo systemctl reboot";
     ncpoweroff = "sudo systemctl poweroff";
 
-    st-patrimoine = "~/bin/open-neovide.sh /var/lib/www/staging.st-patrimoine.com";
-    project-bwp = "kitty --session bwp & disown";
-    obsidian = "nvim ~/Documents/Obsidian/Core";
+    # st-patrimoine = "~/bin/open-neovide.sh /var/lib/www/staging.st-patrimoine.com";
+    # project-bwp = "kitty --session bwp & disown";
+    # obsidian = "nvim ~/Documents/Obsidian/Core";
+    obsidian = "cd ~/Documents/Obsidian/Core && nvim";
   };
 }

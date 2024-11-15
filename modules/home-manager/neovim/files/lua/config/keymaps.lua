@@ -37,12 +37,36 @@ end
 ----------------------------------------------- Nothing ------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 -- map_n("Q", "<nop>", "Disable Q")
+map_n("w", function()
+	local current_line = vim.api.nvim_win_get_cursor(0)[1]
+	vim.cmd("normal! w")
+	if vim.api.nvim_win_get_cursor(0)[1] ~= current_line then
+		vim.cmd("normal! b")
+	end
+end, "Go to next word on the same line")
+map_n("e", function()
+	local current_line = vim.api.nvim_win_get_cursor(0)[1]
+	vim.cmd("normal! e")
+	if vim.api.nvim_win_get_cursor(0)[1] ~= current_line then
+		vim.cmd("normal! ge")
+	end
+end, "Go to next word on the same line")
 map_v("J", ":m '>+1<CR>gv=gv", "Move text up")
 map_n("J", "mzJ`z", "Join lines without moving cursor")
 map_v("K", ":m '>-2<CR>gv=gv", "Move text down")
 map_n("N", "Nzzzv", "Repeat last search then center")
 map_n("n", "nzzzv", "Repeat last search,in opposite direction then center")
 map_n("-", require("oil").toggle_float)
+
+-- local function next_word_same_line()
+--     local current_line = vim.api.nvim_win_get_cursor(0)[1]
+--     -- Move to the next word
+--     vim.cmd('normal! w')
+--     -- If the line number changed, go back to the original position
+--     if vim.api.nvim_win_get_cursor(0)[1] ~= current_line then
+--         vim.cmd('normal! b')
+--     end
+-- end
 
 --------------------------------------------------------------------------------------------------------
 ----------------------------------------------- <leader> -----------------------------------------------
