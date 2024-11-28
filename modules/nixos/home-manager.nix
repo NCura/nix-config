@@ -40,7 +40,7 @@ in {
         ../home-manager/files
         ../home-manager/hyprland
         ../home-manager/obs
-        # ./../../modules/home-manager/qutebrowser
+        ../home-manager/qutebrowser
         ../home-manager/ranger
         ../home-manager/rofi
         ../home-manager/swappy
