@@ -34,6 +34,17 @@
           </Directory>
         '';
       };
+      "local.bordeauxwinepilgrim-staging.com" = {
+        documentRoot = "/var/lib/www/bordeauxwinepilgrim.com";
+        extraConfig = ''
+          DirectoryIndex index.php
+          <Directory "/var/lib/www/bordeauxwinepilgrim.com">
+            AllowOverride All
+            Require all granted
+            Options +FollowSymLinks
+          </Directory>
+        '';
+      };
       "local.pidiffusion-staging.com" = {
         documentRoot = "/var/lib/www/pidiffusion.com";
         extraConfig = ''
@@ -64,6 +75,7 @@
     "127.0.0.1" = [
       "nicolascura-staging.com.local"
       "local.pidiffusion-staging.com"
+      "local.bordeauxwinepilgrim-staging.com"
       "test-wordpress.com.local"
     ];
   };
