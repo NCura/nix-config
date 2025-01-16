@@ -229,9 +229,9 @@ return {
 								["async-recursion"] = { "async_recursion" },
 							},
 						},
-						rustfmt = {
-							overrideCommand = { "leptosfmt", "--stdin", "--rustfmt" },
-						},
+						-- rustfmt = {
+						-- 	overrideCommand = { "leptosfmt", "--stdin", "--rustfmt" },
+						-- },
 					},
 				},
 			})

@@ -11,7 +11,7 @@
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/internationalisation.nix
     ../../modules/nixos/home-manager.nix
-    ../../modules/nixos/ollama.nix
+    # ../../modules/nixos/ollama.nix
     ../../modules/nixos/polkit.nix
     ../../modules/nixos/printing.nix
     ../../modules/nixos/session-variables.nix
