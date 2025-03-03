@@ -19,9 +19,15 @@
     ../../modules/nixos/stylix.nix
     ../../modules/nixos/system-packages.nix
     ../../modules/nixos/virtualization.nix
-    ../../modules/nixos/wordpress.nix
+    # ../../modules/nixos/wordpress.nix
     ../../modules/nixos/xdg-portal.nix
   ];
+
+  networking.hosts = {
+    "192.168.1.73" = [
+      "local-nicolascura.com"
+    ];
+  };
 
   system.stateVersion = "23.11";
 

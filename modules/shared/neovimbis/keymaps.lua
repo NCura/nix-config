@@ -57,6 +57,9 @@ map_v("K", ":m '>-2<CR>gv=gv", "Move text down")
 map_n("N", "Nzzzv", "Repeat last search then center")
 map_n("n", "nzzzv", "Repeat last search,in opposite direction then center")
 map_n("-", require("oil").toggle_float)
+map_n("dc", function()
+	vim.cmd("normal! d/[_A-Z]<CR>")
+end, "Delete up to the next uppercase letter or underscore")
 
 -- local function next_word_same_line()
 --     local current_line = vim.api.nvim_win_get_cursor(0)[1]

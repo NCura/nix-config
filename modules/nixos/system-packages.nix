@@ -56,6 +56,9 @@
     trashy
     devenv
     synergy
+    lsof
+    xh
+    imapsync
   ];
 
   fonts.packages = with pkgs; [

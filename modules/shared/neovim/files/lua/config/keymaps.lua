@@ -57,6 +57,22 @@ map_v("K", ":m '>-2<CR>gv=gv", "Move text down")
 map_n("N", "Nzzzv", "Repeat last search then center")
 map_n("n", "nzzzv", "Repeat last search,in opposite direction then center")
 map_n("-", require("oil").toggle_float)
+-- map_n("du", function()
+-- 	-- Save the current cursor position
+-- 	local cur_pos = vim.fn.getcurpos()
+--
+-- 	-- Search for the next uppercase letter
+-- 	local pos = vim.fn.search("[A-Z]", "W")
+--
+-- 	-- Check if a match was found
+-- 	if pos ~= 0 then
+-- 		-- Move the cursor back to its original position
+-- 		vim.fn.setpos(".", cur_pos)
+--
+-- 		-- Delete from the current cursor position up to the found uppercase letter
+-- 		vim.cmd("normal! d/" .. "[A-Z]")
+-- 	end
+-- end, "Delete up to the next uppercase letter")
 
 -- local function next_word_same_line()
 --     local current_line = vim.api.nvim_win_get_cursor(0)[1]
