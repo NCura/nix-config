@@ -16,6 +16,7 @@
 
       "dwindle" = {
         # default_split_ratio = 0.33;
+        # split_width_multiplier = 1;
       };
     };
   };

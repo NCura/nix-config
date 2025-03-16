@@ -21,11 +21,13 @@
     ../../modules/nixos/virtualization.nix
     # ../../modules/nixos/wordpress.nix
     ../../modules/nixos/xdg-portal.nix
+    ../../modules/shared/thunar
   ];
 
   networking.hosts = {
     "192.168.1.73" = [
-      "local-nicolascura.com"
+      "local-website.com"
+      "www.local-website.com"
     ];
   };
 

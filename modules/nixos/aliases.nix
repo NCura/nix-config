@@ -23,6 +23,7 @@
     ncsleep = "sudo systemctl suspend";
     ncreboot = "sudo systemctl reboot";
     ncpoweroff = "sudo systemctl poweroff";
+    nccleanlocalhost = "kill $(lsof -ti :3000)";
 
     # st-patrimoine = "~/bin/open-neovide.sh /var/lib/www/staging.st-patrimoine.com";
     # project-bwp = "kitty --session bwp & disown";
