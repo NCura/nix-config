@@ -21,6 +21,7 @@
     ../../modules/nixos/virtualization.nix
     # ../../modules/nixos/wordpress.nix
     ../../modules/nixos/xdg-portal.nix
+    ../../modules/shared/email
     ../../modules/shared/thunar
   ];
 

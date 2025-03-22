@@ -43,7 +43,7 @@ in {
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       windowrulev2 = float,class:^(?i)chat$
-      windowrulev2 = float, title:NC
+      # windowrulev2 = float, title:NC
       windowrulev2 = size 2560 1440, title:NC
       windowrulev2 = move 2560 360, title:NC
     '';
