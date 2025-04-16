@@ -50,6 +50,7 @@
     (import ./files/web-search.nix {inherit pkgs;})
     imv
     lutris
+    fontforge-fonttools
     # font-awesome
 
     # (import ./bazecor {

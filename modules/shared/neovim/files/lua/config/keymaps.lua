@@ -99,6 +99,7 @@ map_v("<leader>/", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", "Search selection")
 
 map_n("<leader>q", vim.diagnostic.setloclist, "Open diagnostic [Q]uickfix list")
 map_n("<leader>e", vim.diagnostic.open_float, "Show diagnostic [E]rror messages")
+map_n("<leader>tm", ":Markview toggle<CR>", "[T]oggle [M]arkview")
 map_n("<leader>u", "<cmd>lua require('undotree').toggle()<cr>")
 map_x("<leader>p", '"_dP', "Put without yank")
 map_n("<leader>pv", vim.cmd.Ex, "Open file explorer")

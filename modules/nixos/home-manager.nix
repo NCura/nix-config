@@ -29,6 +29,7 @@ in {
   # '';
   home-manager = {
     useGlobalPkgs = true;
+    backupFileExtension = "backup";
     extraSpecialArgs = {
       inherit inputs;
     };
@@ -37,8 +38,10 @@ in {
         ../shared
 
         ../home-manager/bash
+        ../home-manager/dropbox
         ../home-manager/files
         ../home-manager/hyprland
+        ../home-manager/mouseless
         ../home-manager/obs
         ../home-manager/qutebrowser
         ../home-manager/ranger
