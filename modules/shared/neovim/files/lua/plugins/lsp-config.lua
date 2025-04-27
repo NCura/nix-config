@@ -140,6 +140,13 @@ return {
 
 			lspconfig.cssls.setup({
 				capabilities = capabilities,
+				settings = {
+					scss = {
+						lint = {
+							unknownAtRules = { "ignore" },
+						},
+					},
+				},
 			})
 
 			lspconfig.html.setup({

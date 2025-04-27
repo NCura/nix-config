@@ -23,6 +23,7 @@
     ../../modules/nixos/xdg-portal.nix
     ../../modules/shared/email
     ../../modules/shared/thunar
+    ../../modules/nixos/liquidctl
   ];
 
   networking.hosts = {

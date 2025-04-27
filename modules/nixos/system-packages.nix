@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "freeimage-unstable-2021-11-01"
@@ -6,8 +10,15 @@
     "openssl-1.1.1w" # sublime4
   ];
 
+  programs.direnv.enable = true;
   programs.ydotool.enable = true;
   # programs.nix-ld.enable = true;
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      liquidctl = inputs.latest-nixpkgs.legacyPackages.${prev.system}.liquidctl;
+    })
+  ];
 
   # To search, run: nix search wget
   environment.systemPackages = with pkgs; [

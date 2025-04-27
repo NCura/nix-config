@@ -5,7 +5,7 @@
     profileExtra = ''
       # Login shell
        if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-         sudo liquidctl --match aura set sync color static ff5a2f
+         # sudo liquidctl --match aura set sync color static ff5a2f
          exec Hyprland
        fi
     '';
