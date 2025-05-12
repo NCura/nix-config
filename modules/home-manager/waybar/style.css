@@ -1,13 +1,13 @@
 * {
     font-size: 20px;
-    font-family: JetBrainsMono Nerd Font Mono;
+    /* font-family: JetBrainsMono Nerd Font Mono; */
     border: none;
     border-radius: 0;
 }
 
 window#waybar {
-    background: #171717;
-    color: #ececec;
+    background: #0b1826;
+    color: #f9f2ee;
     border: 2px solid white;
     border-radius: 10px;
 }

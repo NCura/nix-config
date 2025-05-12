@@ -16,7 +16,7 @@
     discord
     webcord
     obsidian
-    gimp
+    gimp3-with-plugins
     spotify
     whatsapp-for-linux
   ];

@@ -1,12 +1,12 @@
 system: "base16"
 variant: "dark"
 palette:
-  base00: "171717" # Main background
-  base01: "595959" # Darker background (for status bars, line number and folding marks)
+  base00: "0b0816" # Main background
+  base01: "0a1725" # Darker background (for status bars, line number and folding marks)
   base02: "212121" # Background highlight (for selection)
   base03: "595959" # Comments, invisibles, line highlighting
   base04: "b0b0b0" # Dark foreground (for status bars)
-  base05: "ececec" # Default foreground, caret, delimiters, operators
+  base05: "f9f2ee" # Default foreground, caret, delimiters, operators
   base06: "ffd7ba" # Light foreground (not often used)
   base07: "ffffff" # Light background (not often used)
   base08: "e57373" # Variables, XML tags, markup link text, lists, etc.

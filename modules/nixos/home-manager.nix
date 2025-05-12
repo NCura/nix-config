@@ -48,7 +48,7 @@ in {
         ../home-manager/rofi
         ../home-manager/swappy
         ../home-manager/swaync
-        # ./../../modules/home-manager/tmux
+        ./../../modules/home-manager/tmux
         ../home-manager/waybar
         # ./../../modules/home-manager/zellij
         ../home-manager/zoxide

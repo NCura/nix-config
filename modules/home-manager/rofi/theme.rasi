@@ -1,12 +1,12 @@
 * {
     font:   "JetBrains Mono 16";
 
-    bg0:    #171717;
+    bg0:    #0b1826;
     bg1:    #2A2A2A;
     bg2:    #3D3D3D80;
     bg3:    #DEB887;
     bg4:    #616161F2;
-    fg0:    #ececec;
+    fg0:    #f9f2ee;
     fg1:    #FFFFFF;
     fg2:    #969696;
     fg3:    #3D3D3D;

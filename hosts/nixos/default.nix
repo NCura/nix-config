@@ -12,6 +12,7 @@
     ../../modules/nixos/internationalisation.nix
     ../../modules/nixos/home-manager.nix
     # ../../modules/nixos/ollama.nix
+    ../../modules/nixos/liquidctl
     ../../modules/nixos/polkit.nix
     ../../modules/nixos/printing.nix
     ../../modules/nixos/session-variables.nix
@@ -21,15 +22,16 @@
     ../../modules/nixos/virtualization.nix
     # ../../modules/nixos/wordpress.nix
     ../../modules/nixos/xdg-portal.nix
+
     ../../modules/shared/email
     ../../modules/shared/thunar
-    ../../modules/nixos/liquidctl
   ];
 
   networking.hosts = {
     "192.168.1.73" = [
       "local-website.com"
       "www.local-website.com"
+      "staging.local-website.com"
     ];
   };
 
