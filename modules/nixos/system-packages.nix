@@ -70,6 +70,7 @@
     lsof
     xh
     imapsync
+    dig
   ];
 
   fonts.packages = with pkgs; [

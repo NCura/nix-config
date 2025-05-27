@@ -33,3 +33,17 @@ vim.opt.splitbelow = true
 vim.opt.scrolloff = 20
 
 vim.o.conceallevel = 2
+vim.opt_local.conceallevel = 2
+vim.o.winborder = "rounded"
+
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.virtualedit = "block"
+vim.opt.inccommand = "split"
+vim.opt.ignorecase = true
+
+-- Diagnostics
+vim.diagnostic.config({
+	virtual_text = true,
+	-- virtual_lines = true,
+})
