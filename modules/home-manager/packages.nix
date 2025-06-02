@@ -52,6 +52,7 @@
     lutris
     fontforge-fonttools
     # font-awesome
+    anki-bin
 
     # (import ./bazecor {
     #   inherit lib;

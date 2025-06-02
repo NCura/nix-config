@@ -18,6 +18,7 @@ in {
       "uucp"
       "plugdev"
       "ydotool"
+      "docker"
     ];
   };
 
