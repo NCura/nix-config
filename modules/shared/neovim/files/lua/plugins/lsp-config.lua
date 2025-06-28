@@ -147,6 +147,14 @@ return {
 			capabilities = capabilities,
 		})
 
+		lspconfig.ansiblels.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.terraformls.setup({
+			capabilities = capabilities,
+		})
+
 		lspconfig.jsonls.setup({
 			capabilities = capabilities,
 		})

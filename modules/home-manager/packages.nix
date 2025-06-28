@@ -3,7 +3,7 @@
     vivaldi
     firefox
     chromium
-    opera
+    # opera
   ];
 
   ides = with pkgs; [
