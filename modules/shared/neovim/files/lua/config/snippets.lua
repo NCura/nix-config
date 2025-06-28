@@ -26,3 +26,14 @@ ls.add_snippets("rust", {
 		t({ "", "    }", "}" }),
 	}),
 })
+
+ls.add_snippets("rust", {
+	s("leptos_server", {
+		t({ "#[server]", "" }),
+		t("pub async fn "),
+		i(1, "function_name"),
+		t("() -> Result<(), NCError> {"),
+		i(0),
+		t({ "", "", "    Ok(())", "}" }),
+	}),
+})
