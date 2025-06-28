@@ -20,7 +20,7 @@
     ../../modules/nixos/stylix.nix
     ../../modules/nixos/system-packages.nix
     ../../modules/nixos/virtualization.nix
-    # ../../modules/nixos/wordpress.nix
+    ../../modules/nixos/wordpress.nix
     ../../modules/nixos/xdg-portal.nix
 
     ../../modules/shared/email
