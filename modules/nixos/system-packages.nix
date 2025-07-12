@@ -71,6 +71,8 @@
     xh
     imapsync
     dig
+    code-cursor
+    claude-code
   ];
 
   fonts.packages = with pkgs; [
