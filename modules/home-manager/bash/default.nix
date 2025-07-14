@@ -16,7 +16,7 @@
       if [ -f $HOME/.ssh/github ]; then
         ssh-add ~/.ssh/github &> /dev/null
       fi
-      if [ -f $HOME/.ssh/infomaniak_nicolas_cura]; then
+      if [ -f $HOME/.ssh/infomaniak_nicolas_cura ]; then
         ssh-add ~/.ssh/infomaniak_nicolas_cura &> /dev/null
       fi
     '';

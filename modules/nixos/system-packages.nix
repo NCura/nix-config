@@ -59,7 +59,8 @@
     gnumake
     gccgo
     # cargo
-    # nodejs_22
+    nodejs_22
+    nodePackages.npm
     # gnome.adwaita-icon-theme
     synergy
     wineWowPackages.waylandFull
@@ -71,7 +72,7 @@
     xh
     imapsync
     dig
-    code-cursor
+    # code-cursor
     claude-code
   ];
 
