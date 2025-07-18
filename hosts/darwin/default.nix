@@ -34,12 +34,13 @@ in {
       options = "--delete-older-than 30d";
     };
   };
-nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = [
     pkgs.vim
-pkgs.neovim
-        pkgs.obsidian
-#pkgs.whatsapp-for-mac
+    pkgs.neovim
+    pkgs.obsidian
+    pkgs.audacity
+    #pkgs.whatsapp-for-mac
     #pkgs.vivaldi
   ];
 

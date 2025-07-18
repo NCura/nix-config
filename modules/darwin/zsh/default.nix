@@ -11,6 +11,7 @@
           ssh-add ~/.ssh/github &> /dev/null
       fi
 
+      . "$HOME/.cargo/env"
       fastfetch
     '';
   };

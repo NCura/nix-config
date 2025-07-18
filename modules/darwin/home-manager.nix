@@ -1,10 +1,15 @@
 {
   inputs,
   pkgs,
+  config,
   ...
 }: let
   user = "nicolascura";
 in {
+  imports = [
+    ./dock
+  ];
+
   users.users.${user} = {
     name = "${user}";
     home = "/Users/${user}";
@@ -15,7 +20,14 @@ in {
   homebrew = {
     enable = true;
     # casks = pkgs.callPackage ./casks.nix {};
-    casks = ["discord" "dropbox" "caffeine" "whatsapp" "notion"];
+    casks = [
+      "discord"
+      "dropbox"
+      "caffeine"
+      "whatsapp"
+      "notion"
+      "unity-hub"
+    ];
     # onActivation.cleanup = "uninstall";
 
     # These app IDs are from using the mas CLI app
@@ -57,4 +69,19 @@ in {
       };
     };
   };
+
+  local.dock.enable = true;
+  local.dock.entries = [
+    {path = "${pkgs.kitty}/Applications/Kitty.app/";}
+    # {
+    #   path = "${config.users.users.${user}.home}/Applications/";
+    #   section = "others";
+    #   options = "--sort name --view list --display folder";
+    # }
+    # {
+    #   path = "/Applications/";
+    #   section = "others";
+    #   options = "--sort name --view list --display folder";
+    # }
+  ];
 }
