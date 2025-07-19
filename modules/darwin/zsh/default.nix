@@ -2,7 +2,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    initExtra = ''
+    initContent = ''
       if [ -z "$SSH_AGENT_PID" ]; then
           eval "$(ssh-agent -s)" > /dev/null
       fi

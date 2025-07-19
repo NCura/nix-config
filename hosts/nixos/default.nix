@@ -25,6 +25,7 @@
 
     ../../modules/shared/email
     ../../modules/shared/thunar
+    ../../modules/shared/packages.nix
     ../../modules/nixos/docker
   ];
 

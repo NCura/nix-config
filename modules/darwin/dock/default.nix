@@ -50,16 +50,23 @@ in
             cfg.entries;
         in
         {
-          system.activationScripts.postUserActivation.text = ''
+          system.activationScripts.dock.text = ''
             echo >&2 "Setting up the Dock..."
-            haveURIs="$(${dockutil}/bin/dockutil --list | ${pkgs.coreutils}/bin/cut -f2)"
-            if ! diff -wu <(echo -n "$haveURIs") <(echo -n '${wantURIs}') >&2 ; then
-              echo >&2 "Resetting Dock."
-              ${dockutil}/bin/dockutil --no-restart --remove all
-              ${createEntries}
-              killall Dock
+            if id "${config.system.primaryUser}" >/dev/null 2>&1; then
+              /usr/bin/sudo -u "${config.system.primaryUser}" /bin/bash -c '
+                export PATH="${dockutil}/bin:${pkgs.coreutils}/bin:$PATH"
+                haveURIs="$(dockutil --list | cut -f2)"
+                if ! diff -wu <(echo -n "$haveURIs") <(echo -n "${wantURIs}") >&2 ; then
+                  echo >&2 "Resetting Dock."
+                  dockutil --no-restart --remove all
+                  ${createEntries}
+                  /usr/bin/killall Dock || true
+                else
+                  echo >&2 "Dock setup complete."
+                fi
+              ' || echo >&2 "Failed to configure Dock (this is non-fatal)"
             else
-              echo >&2 "Dock setup complete."
+              echo >&2 "Primary user ${config.system.primaryUser} not found, skipping Dock configuration"
             fi
           '';
         }

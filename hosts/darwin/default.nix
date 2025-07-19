@@ -8,7 +8,6 @@ in {
   imports = [
     ../../modules/darwin/home-manager.nix
   ];
-  services.nix-daemon.enable = true;
   environment.pathsToLink = ["/share/zsh"];
 
   nix = {
@@ -24,7 +23,6 @@ in {
     };
 
     gc = {
-      user = "root";
       automatic = true;
       interval = {
         Weekday = 0;
@@ -49,9 +47,10 @@ in {
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system = {
+    primaryUser = "nicolascura";
     stateVersion = 5;
 
     defaults = {
