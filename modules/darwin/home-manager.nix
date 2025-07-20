@@ -54,6 +54,8 @@ in {
     users.${user} = {...}: {
       imports = [
         ../shared
+
+        ../home-manager/gitui
         ./zsh
       ];
       home = {

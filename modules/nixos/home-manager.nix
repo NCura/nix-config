@@ -41,6 +41,7 @@ in {
         ../home-manager/bash
         ../home-manager/dropbox
         ../home-manager/files
+        ../home-manager/gitui
         ../home-manager/hyprland
         ../home-manager/mouseless
         ../home-manager/obs
