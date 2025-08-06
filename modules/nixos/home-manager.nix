@@ -22,7 +22,11 @@ in {
     ];
   };
 
-  services.getty.autologinUser = "${user}";
+  services.getty = {
+    autologinUser = "${user}";
+    autologinOnce = true;
+  };
+
   # nix.extraOptions = ''
   #   trusted-users = root nicolas
   #   extra-substituters = https://devenv.cachix.org;
