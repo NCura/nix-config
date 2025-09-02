@@ -3,7 +3,7 @@
     settings = {
       animations = {
         enabled = true;
-        first_launch_animation = false;
+        # first_launch_animation = false;
 
         # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 

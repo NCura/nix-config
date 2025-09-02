@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "freeimage-unstable-2021-11-01"
@@ -74,6 +75,8 @@
     dig
     # code-cursor
     claude-code
+    tailscale
+    deluge
   ];
 
   fonts.packages = with pkgs; [

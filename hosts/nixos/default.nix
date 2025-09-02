@@ -10,6 +10,7 @@
     ../../modules/nixos/audio.nix
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/internationalisation.nix
+    ../../modules/nixos/jellyfin.nix
     ../../modules/nixos/home-manager.nix
     # ../../modules/nixos/ollama.nix
     ../../modules/nixos/liquidctl
@@ -49,6 +50,7 @@
   ];
   boot.kernel.sysctl = {
     "vm.max_map_count" = 2147483642;
+    "vm.swappiness" = 10;
   };
   # For obs
   boot.extraModulePackages = [

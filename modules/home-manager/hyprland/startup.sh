@@ -3,4 +3,4 @@ ssh-add ~/.ssh/github &> /dev/null
 ssh-add ~/.ssh/infomaniak_nicolas_cura &> /dev/null
 
 waybar &
-hyprpaper >~/hyprpaper.log 2>&1
+# hyprpaper >~/hyprpaper.log 2>&1

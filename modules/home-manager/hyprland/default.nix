@@ -54,8 +54,8 @@ in {
     swaybg
     hyprpicker
     # hyprpaper
-    hypridle
-    hyprlock
+    # hypridle
+    # hyprlock
     # hyprcursor
   ];
 
@@ -67,6 +67,6 @@ in {
 
   home.file = {
     # ".config/hypr/hyprpaper.conf".source = ./plugins/hyprpaper.conf;
-    ".config/hypr/hypridle.conf".source = ./plugins/hypridle.conf;
+    # ".config/hypr/hypridle.conf".source = ./plugins/hypridle.conf;
   };
 }
