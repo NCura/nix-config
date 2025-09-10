@@ -14,6 +14,7 @@
     ../../modules/nixos/home-manager.nix
     # ../../modules/nixos/ollama.nix
     ../../modules/nixos/liquidctl
+    ../../modules/nixos/openvpn.nix
     ../../modules/nixos/polkit.nix
     ../../modules/nixos/printing.nix
     ../../modules/nixos/session-variables.nix

@@ -59,6 +59,7 @@
     #   inherit appimageTools;
     #   inherit fetchurl;
     # })
+    sqlite-web
   ];
 
   # nvim = with pkgs; [nil];
