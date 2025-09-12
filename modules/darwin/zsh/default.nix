@@ -11,6 +11,10 @@
           ssh-add ~/.ssh/github &> /dev/null
       fi
 
+      if [ -f $HOME/.ssh/infomaniak ]; then
+          ssh-add ~/.ssh/infomaniak &> /dev/null
+      fi
+
       . "$HOME/.cargo/env"
       fastfetch
     '';
