@@ -2,12 +2,12 @@
   pkgs,
   ...
 }: {
-  environment.systemPackages = [
-    pkgs.vim
-    pkgs.neovim
-    pkgs.obsidian
-    pkgs.audacity
-    #pkgs.whatsapp-for-mac
-    #pkgs.vivaldi
+  environment.systemPackages = with pkgs; [
+    vim
+    neovim
+    obsidian
+    audacity
+    #whatsapp-for-mac
+    #vivaldi
   ];
 }

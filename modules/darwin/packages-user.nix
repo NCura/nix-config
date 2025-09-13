@@ -15,6 +15,7 @@
       "whatsapp"
       "notion"
       "unity-hub"
+      "docker-desktop"
     ];
     
     # Homebrew formulae (CLI tools)
