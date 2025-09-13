@@ -42,22 +42,22 @@ in {
       imports = [
         ../shared
 
-        ../home-manager/bash
-        ../home-manager/dropbox
+        ../home-manager/bash.nix
+        ../home-manager/dropbox.nix
         ../home-manager/files
-        ../home-manager/gitui
+        ../home-manager/gitui.nix
         ../home-manager/hyprland
-        ../home-manager/mouseless
-        ../home-manager/obs
-        ../home-manager/qutebrowser
-        ../home-manager/ranger
+        ../home-manager/mouseless.nix
+        ../home-manager/obs.nix
+        ../home-manager/qutebrowser.nix
+        ../home-manager/ranger.nix
         ../home-manager/rofi
-        ../home-manager/swappy
-        ../home-manager/swaync
-        ./../../modules/home-manager/tmux
+        ../home-manager/swappy.nix
+        ../home-manager/swaync.nix
+        ../home-manager/tmux.nix
         ../home-manager/waybar
-        # ./../../modules/home-manager/zellij
-        ../home-manager/zoxide
+        # ../home-manager/zellij.nix
+        ../home-manager/zoxide.nix
 
         ../home-manager/default-applications.nix
         ../home-manager/gtk-qt.nix

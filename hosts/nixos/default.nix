@@ -17,7 +17,7 @@
     ../../modules/nixos/networking.nix
     ../../modules/nixos/nix-settings.nix
     # ../../modules/nixos/ollama.nix
-    ../../modules/nixos/liquidctl
+    ../../modules/nixos/liquidctl.nix
     ../../modules/nixos/openvpn.nix
     ../../modules/nixos/polkit.nix
     ../../modules/nixos/printing.nix
@@ -35,6 +35,6 @@
     ../../modules/shared/email
     ../../modules/shared/thunar
     ../../modules/shared/packages.nix
-    ../../modules/nixos/docker
+    ../../modules/nixos/docker.nix
   ];
 }
