@@ -29,6 +29,7 @@
     ../../modules/nixos/system.nix
     ../../modules/nixos/system-packages.nix
     ../../modules/nixos/virtualization.nix
+    ../../modules/nixos/wireguard-client.nix
     ../../modules/nixos/wordpress.nix
     ../../modules/nixos/xdg-portal.nix
 

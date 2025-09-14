@@ -75,6 +75,7 @@
     # code-cursor
     claude-code
     tailscale
+    traceroute
   ];
 
   fonts.packages = with pkgs; [
