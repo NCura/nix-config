@@ -63,6 +63,7 @@ in {
         ../home-manager/gtk-qt.nix
         ../home-manager/others.nix
         ../home-manager/packages.nix
+        ../home-manager/stylix-targets.nix
       ];
       home = {
         stateVersion = "23.11";

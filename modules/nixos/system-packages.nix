@@ -16,7 +16,7 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      liquidctl = inputs.latest-nixpkgs.legacyPackages.${prev.system}.liquidctl;
+      liquidctl = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.liquidctl;
     })
   ];
 

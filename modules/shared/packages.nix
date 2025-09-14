@@ -3,4 +3,3 @@
     nixos-anywhere
   ];
 }
-
