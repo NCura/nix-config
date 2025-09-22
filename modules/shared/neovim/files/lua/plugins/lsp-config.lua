@@ -155,6 +155,15 @@ return {
 			capabilities = capabilities,
 		})
 
+		lspconfig.jinja_lsp.setup({
+			capabilities = capabilities,
+			settings = {
+				templates = "./",
+				backend = { "./", "ansible" },
+				lang = "ansible",
+			},
+		})
+
 		lspconfig.jsonls.setup({
 			capabilities = capabilities,
 		})

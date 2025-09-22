@@ -52,6 +52,7 @@ in {
         ../home-manager/qutebrowser.nix
         ../home-manager/ranger.nix
         ../home-manager/rofi
+        ../home-manager/ssh.nix
         ../home-manager/swappy.nix
         ../home-manager/swaync.nix
         ../home-manager/tmux.nix

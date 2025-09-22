@@ -12,6 +12,8 @@
     # css_variables
     # html
     # jsonls
+    ansible-language-server
+    jinja-lsp
     lua-language-server
     marksman
     nil
