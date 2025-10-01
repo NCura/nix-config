@@ -79,7 +79,6 @@
     dnsutils
     net-tools
     inetutils
-    sops
   ];
 
   fonts.packages = with pkgs; [
