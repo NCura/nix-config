@@ -73,7 +73,6 @@
     imapsync
     dig
     # code-cursor
-    claude-code
     tailscale
     traceroute
     dnsutils
