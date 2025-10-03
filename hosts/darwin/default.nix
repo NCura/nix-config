@@ -15,5 +15,6 @@
     ../../modules/darwin/system.nix
     ../../modules/darwin/system-defaults.nix
     ../../modules/darwin/users.nix
+    ../../modules/darwin/wireguard-client.nix
   ];
 }
