@@ -23,7 +23,7 @@
         };
       };
 
-      "vpn.node.consul" = {
+      "gateway.node.consul" = {
         extraOptions = {
           StrictHostKeyChecking = "no";
           UserKnownHostsFile = "/dev/null";
@@ -44,21 +44,21 @@
         };
       };
 
-      "consul1.node.consul" = {
+      "server01.node.consul" = {
         extraOptions = {
           StrictHostKeyChecking = "no";
           UserKnownHostsFile = "/dev/null";
         };
       };
 
-      "consul2.node.consul" = {
+      "server02.node.consul" = {
         extraOptions = {
           StrictHostKeyChecking = "no";
           UserKnownHostsFile = "/dev/null";
         };
       };
 
-      "consul3.node.consul" = {
+      "server03.node.consul" = {
         extraOptions = {
           StrictHostKeyChecking = "no";
           UserKnownHostsFile = "/dev/null";

@@ -11,6 +11,9 @@
         hash = "sha256-LUbDPFa0lY74MBU4hvmYVntt6hVZy6UUZFN0iB4Eno8=";
       };
     });
+    settings = {
+      includeCoAuthoredBy = false;
+    };
   };
 
   home.packages = with pkgs; [

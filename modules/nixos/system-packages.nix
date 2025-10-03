@@ -78,6 +78,7 @@
     dnsutils
     net-tools
     inetutils
+    surrealist
   ];
 
   fonts.packages = with pkgs; [
