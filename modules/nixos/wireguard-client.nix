@@ -33,6 +33,17 @@
       # Route .consul domains to VPN DNS server and default DNS for everything else
       server = [
         "/.consul/10.0.1.5#8600"
+        # Route VPN-only nicolascura.com domains to gateway's dnsmasq
+        "/git.nicolascura.com/10.0.1.5"
+        "/traefik.nicolascura.com/10.0.1.5"
+        "/consul.nicolascura.com/10.0.1.5"
+        "/grafana.nicolascura.com/10.0.1.5"
+        "/metrics.nicolascura.com/10.0.1.5"
+        "/vmalert.nicolascura.com/10.0.1.5"
+        "/karma.nicolascura.com/10.0.1.5"
+        "/db.nicolascura.com/10.0.1.5"
+        "/dashboard.nicolascura.com/10.0.1.5"
+        "/alertmanager.nicolascura.com/10.0.1.5"
         "1.1.1.1"
         "9.9.9.9"
       ];
