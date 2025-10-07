@@ -17,6 +17,8 @@
   nixpkgs.overlays = [
     (final: prev: {
       liquidctl = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.liquidctl;
+
+      surrealist = prev.callPackage ./packages/surrealist.nix { };
     })
   ];
 

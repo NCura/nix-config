@@ -13,6 +13,9 @@
       set -o vi
       # All shells
       eval "$(ssh-agent -s)" > /dev/null
+      if [ -f $HOME/.ssh/forgejo ]; then
+        ssh-add ~/.ssh/forgejo &> /dev/null
+      fi
       if [ -f $HOME/.ssh/github ]; then
         ssh-add ~/.ssh/github &> /dev/null
       fi

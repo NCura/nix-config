@@ -1,3 +1,11 @@
+let
+  # Common options for internal/trusted hosts
+  noStrictHostChecking = {
+    StrictHostKeyChecking = "no";
+    UserKnownHostsFile = "/dev/null";
+    LogLevel = "ERROR"; # Suppresses the warning about adding to known hosts
+  };
+in
 {
   programs.ssh = {
     enable = true;
@@ -6,63 +14,17 @@
     # SSH client configuration
     matchBlocks = {
       # Disable host key checking for the 10.0.1.0/24 network
-      # This prevents SSH from storing or checking host keys for these IPs
       "10.0.1.*" = {
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-          UserKnownHostsFile = "/dev/null";
-          LogLevel = "ERROR"; # Suppresses the warning about adding to known hosts
-        };
+        extraOptions = noStrictHostChecking;
       };
 
       "83.228.200.122" = {
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-          UserKnownHostsFile = "/dev/null";
-          LogLevel = "ERROR"; # Suppresses the warning about adding to known hosts
-        };
+        extraOptions = noStrictHostChecking;
       };
 
-      "gateway.node.consul" = {
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-          UserKnownHostsFile = "/dev/null";
-        };
-      };
-
-      "monitoring.node.consul" = {
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-          UserKnownHostsFile = "/dev/null";
-        };
-      };
-
-      "consul.service.consul" = {
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-          UserKnownHostsFile = "/dev/null";
-        };
-      };
-
-      "server01.node.consul" = {
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-          UserKnownHostsFile = "/dev/null";
-        };
-      };
-
-      "server02.node.consul" = {
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-          UserKnownHostsFile = "/dev/null";
-        };
-      };
-
-      "server03.node.consul" = {
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-          UserKnownHostsFile = "/dev/null";
-        };
+      # All Consul nodes and services
+      "*.node.consul *.service.consul" = {
+        extraOptions = noStrictHostChecking;
       };
 
       # Default match block for all other hosts
