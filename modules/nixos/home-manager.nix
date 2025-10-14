@@ -66,6 +66,8 @@ in {
         ../home-manager/others.nix
         ../home-manager/packages.nix
         ../home-manager/stylix-targets.nix
+
+        ../shared/ghostty
       ];
       home = {
         stateVersion = "23.11";

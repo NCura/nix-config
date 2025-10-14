@@ -11,7 +11,7 @@
           {
             # VPN server
             publicKey = "1o1JWy+5CmxI8reFHCFjtIGB0U47Kj87S5bprVcjKQ8=";
-            endpoint = "83.228.200.122:51820";
+            endpoint = "2001:1600:16:11::62:51820";
             # Route traffic through VPN
             allowedIPs = ["10.0.1.0/24"];
             persistentKeepalive = 25;
@@ -30,10 +30,15 @@
   services.dnsmasq = {
     enable = true;
     settings = {
-      # Route .consul domains to VPN DNS server and default DNS for everything else
+      # Forward .consul domain queries to gateway's Consul DNS
       server = [
         "/.consul/10.0.1.5#8600"
-        # Route VPN-only nicolascura.com domains to gateway's dnsmasq
+        "1.1.1.1"
+        "9.9.9.9"
+      ];
+
+      # Resolve VPN-only nicolascura.com domains directly to gateway IP
+      address = [
         "/git.nicolascura.com/10.0.1.5"
         "/traefik.nicolascura.com/10.0.1.5"
         "/consul.nicolascura.com/10.0.1.5"
@@ -44,9 +49,10 @@
         "/db.nicolascura.com/10.0.1.5"
         "/dashboard.nicolascura.com/10.0.1.5"
         "/alertmanager.nicolascura.com/10.0.1.5"
-        "1.1.1.1"
-        "9.9.9.9"
       ];
+
+      # Disable IPv6 (AAAA) responses to prevent Cloudflare bypass
+      filter-AAAA = true;
 
       # Listen on localhost
       listen-address = "127.0.0.1";

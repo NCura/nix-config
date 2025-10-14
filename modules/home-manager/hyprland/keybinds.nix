@@ -10,7 +10,7 @@
       "$mod, W, exec, pkill -SIGUSR1 waybar"
       "$mod, E, exec, pypr toggle ranger && hyprctl dispatch bringactivetotop"
       "$mod, R, exec, rofi -show drun"
-      "$mod, T, exec, kitty"
+      "$mod, T, exec, ghostty"
       # "$mod, Y, ,"
       # "$mod, U, ,"
       "$mod, I, exec, vivaldi"
