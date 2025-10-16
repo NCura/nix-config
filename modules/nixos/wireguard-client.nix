@@ -9,10 +9,12 @@
 
         peers = [
           {
-            # VPN server
-            publicKey = "1o1JWy+5CmxI8reFHCFjtIGB0U47Kj87S5bprVcjKQ8=";
-            endpoint = "2001:1600:16:11::62:51820";
-            # Route traffic through VPN
+            # Gateway VPN server (primary - always on)
+            publicKey = "6HBSPNC/7zKuppBvkvXdMrDBcoaIZ5OFS8Lb8M38ixo=";
+            endpoint = "83.228.200.122:51820";
+            # Builder VPN server (backup - when running)
+            # publicKey = "1o1JWy+5CmxI8reFHCFjtIGB0U47Kj87S5bprVcjKQ8=";
+            # endpoint = "2001:1600:16:11::62:51820";
             allowedIPs = ["10.0.1.0/24"];
             persistentKeepalive = 25;
           }

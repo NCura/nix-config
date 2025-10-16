@@ -43,7 +43,7 @@ in {
         ../shared
 
         ../home-manager/bash.nix
-        ../home-manager/claude-code.nix
+        ../home-manager/claude-code
         ../home-manager/dropbox.nix
         ../home-manager/files
         ../home-manager/gitui.nix

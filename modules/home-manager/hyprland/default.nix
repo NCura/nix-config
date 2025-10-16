@@ -47,6 +47,7 @@ in {
       # windowrulev2 = float, title:NC
       windowrulev2 = size 2560 1440, title:NC
       windowrulev2 = move 2560 360, title:NC
+      windowrulev2 = workspace unset,class:^(com\.mitchellh\.ghostty)$
     '';
   };
 

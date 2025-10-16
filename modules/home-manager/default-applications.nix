@@ -17,6 +17,8 @@
       "application/xhtml+xml" = "vivaldi-stable.desktop";
       "application/x-extension-xhtml" = "vivaldi-stable.desktop";
       "application/x-extension-xht" = "vivaldi-stable.desktop";
+      "text/plain" = "ghostty-nvim.desktop";
+      "text/x-log" = "ghostty-nvim.desktop";
     };
   };
 }

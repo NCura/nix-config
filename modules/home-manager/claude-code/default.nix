@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.claude-code = {
     enable = true;
     package = pkgs.claude-code.overrideAttrs (old: rec {
@@ -13,6 +10,13 @@
     });
     settings = {
       includeCoAuthoredBy = false;
+    };
+    agents = {
+      nix-helper = ./agents/nix-helper.md;
+      git-commit-manager = ./agents/git-commit-manager.md;
+    };
+    commands = {
+      commit = ./commands/commit.md;
     };
   };
 
