@@ -5,8 +5,7 @@ let
     UserKnownHostsFile = "/dev/null";
     LogLevel = "ERROR"; # Suppresses the warning about adding to known hosts
   };
-in
-{
+in {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false; # Disable default config to avoid deprecation warning
@@ -23,7 +22,7 @@ in
       };
 
       # All Consul nodes and services
-      "*.node.consul *.service.consul" = {
+      "*.node.consul *.service.consul *.nicolascura.com" = {
         extraOptions = noStrictHostChecking;
       };
 

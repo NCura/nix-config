@@ -1,10 +1,7 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   nix = {
     settings = {
+      download-buffer-size = 268435456; # 256 MiB
       auto-optimise-store = true;
       experimental-features = [
         "nix-command"
@@ -23,5 +20,14 @@
       options = "--delete-older-than 7d";
     };
   };
-}
 
+  systemd.tmpfiles.settings."10-nix-gcroots" = {
+    "/nix/var/nix/gcroots/remote-systems" = {
+      d = {
+        mode = "0755";
+        user = "nicolas";
+        group = "users";
+      };
+    };
+  };
+}
