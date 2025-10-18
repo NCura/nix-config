@@ -44,6 +44,7 @@ in {
 
         ../home-manager/bash.nix
         ../home-manager/claude-code
+        ../home-manager/opencode
         ../home-manager/dropbox.nix
         ../home-manager/files
         ../home-manager/gitui.nix

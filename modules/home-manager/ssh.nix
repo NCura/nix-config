@@ -22,7 +22,7 @@ in {
       };
 
       # All Consul nodes and services
-      "*.node.consul *.service.consul *.nicolascura.com" = {
+      "*.node.consul *.service.consul *.nicolascura.fr" = {
         extraOptions = noStrictHostChecking;
       };
 
