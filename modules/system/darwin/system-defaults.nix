@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   system.defaults = {
     NSGlobalDomain = {
       AppleShowAllExtensions = true;

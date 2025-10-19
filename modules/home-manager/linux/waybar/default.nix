@@ -1,5 +1,6 @@
-{lib, ...}: {
-  imports = [./settings.nix];
+{ lib, ... }:
+{
+  imports = [ ./settings.nix ];
 
   programs.waybar = {
     enable = true;

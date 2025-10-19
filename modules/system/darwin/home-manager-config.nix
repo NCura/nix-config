@@ -1,20 +1,24 @@
 {
   inputs,
   ...
-}: let
+}:
+let
   user = "nicolascura";
-in {
+in
+{
   home-manager = {
     useGlobalPkgs = true;
     extraSpecialArgs = {
       inherit inputs;
     };
-    users.${user} = {...}: {
-      home = {
-        stateVersion = "23.11";
-        username = "${user}";
-        homeDirectory = "/Users/${user}";
+    users.${user} =
+      { ... }:
+      {
+        home = {
+          stateVersion = "23.11";
+          username = "${user}";
+          homeDirectory = "/Users/${user}";
+        };
       };
-    };
   };
 }

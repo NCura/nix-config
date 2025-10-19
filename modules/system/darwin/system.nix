@@ -2,9 +2,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   user = "nicolascura";
-in {
+in
+{
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 

@@ -1,9 +1,11 @@
 {
   pkgs,
   ...
-}: let
+}:
+let
   user = "nicolascura";
-in {
+in
+{
   users.users.${user} = {
     name = "${user}";
     home = "/Users/${user}";

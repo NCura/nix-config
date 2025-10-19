@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.waybar.settings = {
     mainBar = {
       layer = "top";
@@ -16,7 +17,7 @@
         # "network"
       ];
 
-      modules-center = ["hyprland/workspaces"];
+      modules-center = [ "hyprland/workspaces" ];
 
       modules-right = [
         "tray"

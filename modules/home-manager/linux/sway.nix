@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   environment.loginShellInit = ''
     [[ "$(tty)" == /dev/tty1 ]] && sway
   '';
@@ -16,7 +17,7 @@
       terminal = "kitty";
       startup = [
         # Launch Firefox on start
-        {command = "firefox";}
+        { command = "firefox"; }
       ];
       input."*" = {
         xkb_layout = "us, us";

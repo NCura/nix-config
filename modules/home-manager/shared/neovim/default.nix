@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "~/nix-config/modules/home-manager/neovim/files";
   home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./files;
 

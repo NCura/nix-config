@@ -1,6 +1,8 @@
-{inputs, ...}: let
+{ inputs, ... }:
+let
   user = "nicolas";
-in {
+in
+{
   users.users.${user} = {
     name = "${user}";
     home = "/home/${user}";
@@ -38,12 +40,14 @@ in {
     extraSpecialArgs = {
       inherit inputs;
     };
-    users.${user} = {...}: {
-      home = {
-        stateVersion = "23.11";
-        username = "${user}";
-        homeDirectory = "/home/${user}";
+    users.${user} =
+      { ... }:
+      {
+        home = {
+          stateVersion = "23.11";
+          username = "${user}";
+          homeDirectory = "/home/${user}";
+        };
       };
-    };
   };
 }

@@ -59,7 +59,10 @@ let
       hash = "sha256-5d0HVn4dv2jHt6MB/JCrv9DlH0VsRuU9FHcEkuBktiw=";
     };
 
-    nativeBuildInputs = [ bun nodejs ];
+    nativeBuildInputs = [
+      bun
+      nodejs
+    ];
 
     buildPhase = ''
       export HOME=$(mktemp -d)

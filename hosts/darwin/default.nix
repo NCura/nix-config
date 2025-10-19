@@ -2,11 +2,15 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   system = ../../modules/system/darwin;
+  systemShared = ../../modules/system/shared;
   shared = ../../modules/home-manager/shared;
-in {
+in
+{
   imports = [
+    (systemShared + /packages.nix)
     (system + /dock-config.nix)
     (system + /dock.nix)
     (system + /environment.nix)
@@ -29,6 +33,5 @@ in {
     (shared + /kitty)
     (shared + /neovim)
     (shared + /oh-my-posh)
-    (shared + /packages.nix)
   ];
 }

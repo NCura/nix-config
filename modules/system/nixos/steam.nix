@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -13,4 +14,3 @@
   # Enable XWayland for SDL2 compatibility
   programs.xwayland.enable = true;
 }
-

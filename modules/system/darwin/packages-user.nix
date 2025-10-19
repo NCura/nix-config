@@ -2,11 +2,12 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # User-wide packages managed through Homebrew
   homebrew = {
     enable = true;
-    
+
     # Homebrew casks (GUI applications)
     casks = [
       "discord"
@@ -17,7 +18,7 @@
       "unity-hub"
       "docker-desktop"
     ];
-    
+
     # Homebrew formulae (CLI tools)
     brews = [
       # Add CLI tools here
@@ -25,7 +26,7 @@
       # "git"
       # "curl"
     ];
-    
+
     # Mac App Store applications
     # These app IDs are from using the mas CLI app
     # mas = mac app store
@@ -42,7 +43,7 @@
       # "1password" = 1333542190;
       # "wireguard" = 1451685025;
     };
-    
+
     # onActivation.cleanup = "uninstall";
   };
 }

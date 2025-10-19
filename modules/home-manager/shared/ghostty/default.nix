@@ -1,12 +1,14 @@
-{pkgs, lib, ...}: let
+{ pkgs, lib, ... }:
+let
   # Use ghostty-bin on Darwin, ghostty on Linux
   ghosttyPkg = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
-  
+
   # Script to open files in nvim within ghostty
   ghostty-nvim = pkgs.writeShellScriptBin "ghostty-nvim" ''
     exec ${ghosttyPkg}/bin/ghostty -e ${pkgs.neovim}/bin/nvim "$@"
   '';
-in {
+in
+{
   programs.ghostty = {
     enable = true;
     package = ghosttyPkg;
@@ -16,13 +18,13 @@ in {
       # font-size = 16;
       working-directory = "home";
       confirm-close-surface = "true";
-      keybind = ["ctrl+f=write_scrollback_file:open"];
+      keybind = [ "ctrl+f=write_scrollback_file:open" ];
       # Prevent inheriting working directory from shell integration
       window-inherit-working-directory = false;
     };
   };
 
-  home.packages = [ghostty-nvim] ++ lib.optionals pkgs.stdenv.isDarwin [ghosttyPkg];
+  home.packages = [ ghostty-nvim ] ++ lib.optionals pkgs.stdenv.isDarwin [ ghosttyPkg ];
 
   # Create custom desktop file for nvim in ghostty
   xdg.dataFile."applications/ghostty-nvim.desktop".text = ''

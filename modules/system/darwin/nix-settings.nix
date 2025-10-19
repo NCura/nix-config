@@ -1,9 +1,11 @@
 {
   pkgs,
   ...
-}: let
+}:
+let
   user = "nicolascura";
-in {
+in
+{
   nix = {
     package = pkgs.nix;
     settings = {

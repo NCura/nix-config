@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   browsers = with pkgs; [
     vivaldi
     firefox
@@ -46,8 +47,8 @@
     grim
     slurp
     swappy
-    (import ./files/screenshootin.nix {inherit pkgs;})
-    (import ./files/web-search.nix {inherit pkgs;})
+    (import ./files/screenshootin.nix { inherit pkgs; })
+    (import ./files/web-search.nix { inherit pkgs; })
     imv
     lutris
     fontforge-fonttools
@@ -66,6 +67,7 @@
 
   combinedPackages =
     browsers ++ ides ++ myPrograms ++ hyprlandTools ++ audioTools ++ webTools ++ others;
-in {
+in
+{
   home.packages = combinedPackages;
 }

@@ -1,8 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.opencode = {
     enable = true;
 
-    package = import ./package.nix {inherit pkgs;};
+    package = import ./package.nix { inherit pkgs; };
 
     settings = {
       permission = {

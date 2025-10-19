@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   stylix.enable = true;
   stylix.base16Scheme = ./../../../assets/styles/ncstyle.yaml;
 

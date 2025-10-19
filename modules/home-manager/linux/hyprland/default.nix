@@ -2,10 +2,12 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   startupScriptPath = ./startup.sh;
   startupScript = pkgs.writeScriptBin "startup-hyprland" (builtins.readFile startupScriptPath);
-in {
+in
+{
   imports = [
     ./animations.nix
     ./decoration.nix

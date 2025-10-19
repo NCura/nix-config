@@ -28,7 +28,7 @@ appimageTools.wrapAppImage rec {
   # taken from
   # https://github.com/Dygmalab/Bazecor/blob/v1.3.6/src/main/utils/udev.ts#L6
 
-  extraPkgs = p: (appimageTools.defaultFhsEnvArgs.multiPkgs p) ++ [p.glib];
+  extraPkgs = p: (appimageTools.defaultFhsEnvArgs.multiPkgs p) ++ [ p.glib ];
 
   # Also expose the udev rules here, so it can be used as:
   #   services.udev.packages = [ pkgs.bazecor ];
@@ -45,10 +45,10 @@ appimageTools.wrapAppImage rec {
     description = "Graphical configurator for Dygma Products";
     homepage = "https://github.com/Dygmalab/Bazecor";
     changelog = "https://github.com/Dygmalab/Bazecor/releases/tag/v${version}";
-    sourceProvenance = [lib.sourceTypes.binaryNativeCode];
+    sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [amesgen];
-    platforms = ["x86_64-linux"];
+    maintainers = with lib.maintainers; [ amesgen ];
+    platforms = [ "x86_64-linux" ];
     mainProgram = "bazecor";
   };
 }

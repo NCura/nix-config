@@ -49,56 +49,58 @@
     };
   };
 
-  outputs = {
-    nixpkgs-unstable,
-    nix-darwin,
-    stylix,
-    home-manager-unstable,
-    nix-homebrew,
-    homebrew-bundle,
-    homebrew-core,
-    homebrew-cask,
-    ...
-  } @ inputs: {
-    nixosConfigurations = {
-      nixos = nixpkgs-unstable.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
+  outputs =
+    {
+      nixpkgs-unstable,
+      nix-darwin,
+      stylix,
+      home-manager-unstable,
+      nix-homebrew,
+      homebrew-bundle,
+      homebrew-core,
+      homebrew-cask,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = {
+        nixos = nixpkgs-unstable.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            stylix.nixosModules.stylix
+            home-manager-unstable.nixosModules.home-manager
+            ./hosts/nixos
+          ];
         };
-        modules = [
-          stylix.nixosModules.stylix
-          home-manager-unstable.nixosModules.home-manager
-          ./hosts/nixos
-        ];
       };
-    };
 
-    darwinConfigurations = {
-      NCMBP14 = nix-darwin.lib.darwinSystem {
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          home-manager-unstable.darwinModules.home-manager
+      darwinConfigurations = {
+        NCMBP14 = nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            home-manager-unstable.darwinModules.home-manager
 
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = true;
-              user = "nicolascura";
-              taps = {
-                "homebrew/homebrew-core" = homebrew-core;
-                "homebrew/homebrew-cask" = homebrew-cask;
-                "homebrew/homebrew-bundle" = homebrew-bundle;
+            nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                enable = true;
+                enableRosetta = true;
+                user = "nicolascura";
+                taps = {
+                  "homebrew/homebrew-core" = homebrew-core;
+                  "homebrew/homebrew-cask" = homebrew-cask;
+                  "homebrew/homebrew-bundle" = homebrew-bundle;
+                };
+                mutableTaps = false;
+                autoMigrate = true;
               };
-              mutableTaps = false;
-              autoMigrate = true;
-            };
-          }
-          ./hosts/darwin
-        ];
+            }
+            ./hosts/darwin
+          ];
+        };
       };
     };
-  };
 }

@@ -11,7 +11,7 @@
       RestartSec = 3;
     };
     Install = {
-      WantedBy = ["default.target"];
+      WantedBy = [ "default.target" ];
     };
   };
   home.file.".config/mouseless/config.yaml".text = ''

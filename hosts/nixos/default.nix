@@ -1,10 +1,13 @@
 let
   system = ../../modules/system/nixos;
+  systemShared = ../../modules/system/shared;
   shared = ../../modules/home-manager/shared;
   linux = ../../modules/home-manager/linux;
-in {
+in
+{
   imports = [
     ./hardware-configuration.nix
+    (systemShared + /packages.nix)
     (system + /aliases.nix)
     (system + /app-images.nix)
     (system + /audio.nix)
@@ -45,7 +48,6 @@ in {
     (shared + /neovim)
     (shared + /oh-my-posh)
     (shared + /opencode)
-    (shared + /packages.nix)
     (shared + /ssh.nix)
     (shared + /tmux.nix)
     (shared + /zoxide.nix)

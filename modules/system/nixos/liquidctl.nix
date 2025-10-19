@@ -1,8 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   systemd.services.liquidctl = {
     description = "AIO startup service";
-    wantedBy = ["default.target"];
-    after = ["network.target"];
+    wantedBy = [ "default.target" ];
+    after = [ "network.target" ];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = [

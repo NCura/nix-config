@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.variables.EDITOR = "nvim";
 
   environment.sessionVariables = {

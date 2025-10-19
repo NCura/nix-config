@@ -2,7 +2,7 @@
   programs = {
     ranger = {
       enable = true;
-      rifle = [];
+      rifle = [ ];
       settings = {
         column_ratios = "1,3,4";
         show_hidden = true;
