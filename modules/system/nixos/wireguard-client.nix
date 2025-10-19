@@ -35,15 +35,13 @@
       # Forward .consul domain queries to gateway's Consul DNS
       server = [
         "/.consul/10.0.1.5#8600"
-        # Exception: auth.nicolascura.fr should use public DNS (not VPN)
-        "/auth.nicolascura.fr/"
         "1.1.1.1"
         "9.9.9.9"
       ];
 
       # Resolve all nicolascura.fr subdomains to gateway IP (VPN-only services)
       address = [
-        "/.nicolascura.fr/10.0.1.5"
+        "/nicolascura.fr/10.0.1.5"
       ];
 
       # Disable IPv6 (AAAA) responses to prevent Cloudflare bypass
