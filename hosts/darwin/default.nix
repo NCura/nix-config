@@ -4,7 +4,7 @@
   ...
 }: let
   system = ../../modules/system/darwin;
-  hm = ../../modules/home-manager;
+  shared = ../../modules/home-manager/shared;
 in {
   imports = [
     (system + /dock-config.nix)
@@ -23,8 +23,12 @@ in {
   ];
 
   home-manager.users.nicolascura.imports = [
-    (hm + /shared)
-
-    (hm + /shared/ghostty)
+    (shared + /fastfetch)
+    (shared + /ghostty)
+    (shared + /git)
+    (shared + /kitty)
+    (shared + /neovim)
+    (shared + /oh-my-posh)
+    (shared + /packages.nix)
   ];
 }

@@ -5,7 +5,8 @@
   ...
 }: let
   system = ../../modules/system/nixos;
-  hm = ../../modules/home-manager;
+  shared = ../../modules/home-manager/shared;
+  linux = ../../modules/home-manager/linux;
 in {
   imports = [
     ./hardware-configuration.nix
@@ -40,26 +41,31 @@ in {
   ];
 
   home-manager.users.nicolas.imports = [
-    (hm + /shared)
+    (shared + /fastfetch)
+    (shared + /git)
+    (shared + /kitty)
+    (shared + /neovim)
+    (shared + /oh-my-posh)
+    (shared + /packages.nix)
 
-    (hm + /linux/bash.nix)
-    (hm + /linux/default-applications.nix)
-    (hm + /linux/dropbox.nix)
-    (hm + /linux/files)
-    (hm + /linux/gitui.nix)
-    (hm + /linux/gtk-qt.nix)
-    (hm + /linux/hyprland)
-    (hm + /linux/mouseless.nix)
-    (hm + /linux/obs.nix)
-    (hm + /linux/others.nix)
-    (hm + /linux/packages.nix)
-    (hm + /linux/qutebrowser.nix)
-    (hm + /linux/ranger.nix)
-    (hm + /linux/rofi)
-    (hm + /linux/stylix-targets.nix)
-    (hm + /linux/swappy.nix)
-    (hm + /linux/swaync.nix)
-    (hm + /linux/waybar)
-    # (hm + /shared/zellij.nix)
+    (linux + /bash.nix)
+    (linux + /default-applications.nix)
+    (linux + /dropbox.nix)
+    (linux + /files)
+    (linux + /gitui.nix)
+    (linux + /gtk-qt.nix)
+    (linux + /hyprland)
+    (linux + /mouseless.nix)
+    (linux + /obs.nix)
+    (linux + /others.nix)
+    (linux + /packages.nix)
+    (linux + /qutebrowser.nix)
+    (linux + /ranger.nix)
+    (linux + /rofi)
+    (linux + /stylix-targets.nix)
+    (linux + /swappy.nix)
+    (linux + /swaync.nix)
+    (linux + /waybar)
+    # (shared + /zellij.nix)
   ];
 }
