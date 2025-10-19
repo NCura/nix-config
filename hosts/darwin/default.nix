@@ -31,7 +31,7 @@ in
     (homeShared + /ghostty)
     (homeShared + /git)
     (homeShared + /kitty)
-    (homeShared + /neovim)
+    (homeShared + /neovim-nix)
     (homeShared + /oh-my-posh)
     (homeShared + /ssh.nix)
     (homeShared + /zsh.nix)
