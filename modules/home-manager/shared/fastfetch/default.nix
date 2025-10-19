@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       logo = {
-        source = ./../../../assets/icons/nixos-logo.png;
+        source = ./../../../../assets/icons/nixos-logo.png;
         type = "kitty-direct";
         width = 30;
         preserveAspectRatio = true;

@@ -39,45 +39,11 @@ in {
       inherit inputs;
     };
     users.${user} = {...}: {
-      imports = [
-        ../shared
-
-        ../home-manager/bash.nix
-        ../home-manager/claude-code
-        ../home-manager/opencode
-        ../home-manager/dropbox.nix
-        ../home-manager/files
-        ../home-manager/gitui.nix
-        ../home-manager/hyprland
-        ../home-manager/mouseless.nix
-        ../home-manager/obs.nix
-        ../home-manager/qutebrowser.nix
-        ../home-manager/ranger.nix
-        ../home-manager/rofi
-        ../home-manager/ssh.nix
-        ../home-manager/swappy.nix
-        ../home-manager/swaync.nix
-        ../home-manager/tmux.nix
-        ../home-manager/waybar
-        # ../home-manager/zellij.nix
-        ../home-manager/zoxide.nix
-
-        ../home-manager/default-applications.nix
-        ../home-manager/gtk-qt.nix
-        ../home-manager/others.nix
-        ../home-manager/packages.nix
-        ../home-manager/stylix-targets.nix
-
-        ../shared/ghostty
-      ];
       home = {
         stateVersion = "23.11";
         username = "${user}";
         homeDirectory = "/home/${user}";
       };
     };
-    # extraSpecialArgs = {
-    #   inherit inputs;
-    # };
   };
 }

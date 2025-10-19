@@ -10,20 +10,7 @@ in {
       inherit inputs;
     };
     users.${user} = {...}: {
-      imports = [
-        ../shared
-
-        ../home-manager/opencode
-        ../shared/ghostty
-        ./zsh.nix
-      ];
       home = {
-        # enableNixpkgsReleaseCheck = false;
-        # packages = pkgs.callPackage ./packages.nix {};
-        # file = lib.mkMerge [
-        #   sharedFiles
-        #   additionalFiles
-        # ];
         stateVersion = "23.11";
         username = "${user}";
         homeDirectory = "/Users/${user}";

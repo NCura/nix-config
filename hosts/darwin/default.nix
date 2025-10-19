@@ -2,19 +2,29 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  system = ../../modules/system/darwin;
+  hm = ../../modules/home-manager;
+in {
   imports = [
-    ../../modules/darwin/dock.nix
-    ../../modules/darwin/dock-config.nix
-    ../../modules/darwin/environment.nix
-    ../../modules/darwin/home-manager-config.nix
-    ../../modules/darwin/nix-settings.nix
-    ../../modules/darwin/packages-system.nix
-    ../../modules/darwin/packages-user.nix
-    ../../modules/darwin/security.nix
-    ../../modules/darwin/system.nix
-    ../../modules/darwin/system-defaults.nix
-    ../../modules/darwin/users.nix
-    ../../modules/darwin/wireguard-client.nix
+    (system + /dock-config.nix)
+    (system + /dock.nix)
+    (system + /environment.nix)
+    (system + /home-manager-config.nix)
+    (system + /nix-settings.nix)
+    (system + /packages-system.nix)
+    (system + /packages-user.nix)
+    (system + /security.nix)
+    (system + /system-defaults.nix)
+    (system + /system.nix)
+    (system + /users.nix)
+    (system + /wireguard-client.nix)
+    (system + /zsh.nix)
+  ];
+
+  home-manager.users.nicolascura.imports = [
+    (hm + /shared)
+
+    (hm + /shared/ghostty)
   ];
 }
