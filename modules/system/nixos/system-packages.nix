@@ -64,12 +64,10 @@
     nodejs_22
     nodePackages.npm
     # gnome.adwaita-icon-theme
-    synergy
     wineWowPackages.waylandFull
     bazecor
     trashy
     devenv
-    synergy
     lsof
     xh
     imapsync

@@ -4,7 +4,7 @@
   ...
 }: {
   stylix.enable = true;
-  stylix.base16Scheme = ./../../assets/styles/ncstyle.yaml;
+  stylix.base16Scheme = ./../../../assets/styles/ncstyle.yaml;
 
   # stylix.image = ./../../assets/wallpapers/forest.jpg;
 

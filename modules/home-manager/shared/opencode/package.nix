@@ -16,7 +16,7 @@ pkgs.opencode.overrideAttrs (oldAttrs: rec {
   node_modules = oldAttrs.node_modules.overrideAttrs (oldNode: {
     inherit version src;
     outputHash = {
-      x86_64-linux = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      x86_64-linux = "sha256-EfH8fBgP0zsKVu26BxFq1NCwWLG6vlOhDD/WQ7152hA=";
       aarch64-darwin = "sha256-+wUulok3OdJ0YewuyOkv5zbiC+3QzhokfT3aCdL5akk=";
     }.${pkgs.stdenv.hostPlatform.system};
   });

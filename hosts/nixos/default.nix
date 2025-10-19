@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: let
+let
   system = ../../modules/system/nixos;
   shared = ../../modules/home-manager/shared;
   linux = ../../modules/home-manager/linux;
@@ -27,13 +22,14 @@ in {
     (system + /openvpn.nix)
     (system + /polkit.nix)
     (system + /printing.nix)
-    (system + /programs.nix)
+    (system + /nix-ld.nix)
     (system + /security.nix)
     (system + /session-variables.nix)
     (system + /steam.nix)
     (system + /stylix.nix)
     (system + /system.nix)
     (system + /system-packages.nix)
+    (system + /thunar)
     (system + /virtualization.nix)
     (system + /wireguard-client.nix)
     (system + /wordpress.nix)
@@ -41,12 +37,18 @@ in {
   ];
 
   home-manager.users.nicolas.imports = [
+    (shared + /claude-code)
     (shared + /fastfetch)
+    (shared + /ghostty)
     (shared + /git)
     (shared + /kitty)
     (shared + /neovim)
     (shared + /oh-my-posh)
+    (shared + /opencode)
     (shared + /packages.nix)
+    (shared + /ssh.nix)
+    (shared + /tmux.nix)
+    (shared + /zoxide.nix)
 
     (linux + /bash.nix)
     (linux + /default-applications.nix)
