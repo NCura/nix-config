@@ -19,9 +19,10 @@ let
     [Interface]
     PrivateKey = $PRIVATE_KEY
     Address = 192.168.2.2/32
+    DNS = 10.0.1.5
 
     [Peer]
-    PublicKey = 1o1JWy+5CmxI8reFHCFjtIGB0U47Kj87S5bprVcjKQ8=
+    PublicKey = 6HBSPNC/7zKuppBvkvXdMrDBcoaIZ5OFS8Lb8M38ixo=
     Endpoint = 83.228.200.122:51820
     AllowedIPs = 10.0.1.0/24
     PersistentKeepalive = 25
