@@ -1,8 +1,8 @@
 let
   system = ../../modules/system/nixos;
   systemShared = ../../modules/system/shared;
-  shared = ../../modules/home-manager/shared;
-  linux = ../../modules/home-manager/linux;
+  homeShared = ../../modules/home-manager/shared;
+  homeLinux = ../../modules/home-manager/linux;
 in
 {
   imports = [
@@ -40,36 +40,36 @@ in
   ];
 
   home-manager.users.nicolas.imports = [
-    (shared + /claude-code)
-    (shared + /fastfetch)
-    (shared + /ghostty)
-    (shared + /git)
-    (shared + /kitty)
-    (shared + /neovim)
-    (shared + /oh-my-posh)
-    (shared + /opencode)
-    (shared + /ssh.nix)
-    (shared + /tmux.nix)
-    (shared + /zoxide.nix)
+    (homeShared + /claude-code)
+    (homeShared + /fastfetch)
+    (homeShared + /ghostty)
+    (homeShared + /git)
+    (homeShared + /kitty)
+    (homeShared + /neovim)
+    (homeShared + /oh-my-posh)
+    (homeShared + /opencode)
+    (homeShared + /ssh.nix)
+    (homeShared + /tmux.nix)
+    (homeShared + /zoxide.nix)
 
-    (linux + /bash.nix)
-    (linux + /default-applications.nix)
-    (linux + /dropbox.nix)
-    (linux + /files)
-    (linux + /gitui.nix)
-    (linux + /gtk-qt.nix)
-    (linux + /hyprland)
-    (linux + /mouseless.nix)
-    (linux + /obs.nix)
-    (linux + /others.nix)
-    (linux + /packages.nix)
-    (linux + /qutebrowser.nix)
-    (linux + /ranger.nix)
-    (linux + /rofi)
-    (linux + /stylix-targets.nix)
-    (linux + /swappy.nix)
-    (linux + /swaync.nix)
-    (linux + /waybar)
-    # (shared + /zellij.nix)
+    (homeLinux + /bash.nix)
+    (homeLinux + /default-applications.nix)
+    (homeLinux + /dropbox.nix)
+    (homeLinux + /files)
+    (homeLinux + /gitui.nix)
+    (homeLinux + /gtk-qt.nix)
+    (homeLinux + /hyprland)
+    (homeLinux + /mouseless.nix)
+    (homeLinux + /obs.nix)
+    (homeLinux + /others.nix)
+    (homeLinux + /packages.nix)
+    (homeLinux + /qutebrowser.nix)
+    (homeLinux + /ranger.nix)
+    (homeLinux + /rofi)
+    (homeLinux + /stylix-targets.nix)
+    (homeLinux + /swappy.nix)
+    (homeLinux + /swaync.nix)
+    (homeLinux + /waybar)
+    # (homeShared + /zellij.nix)
   ];
 }
