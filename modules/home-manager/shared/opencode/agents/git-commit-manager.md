@@ -59,31 +59,61 @@ All commits must follow this structure:
    - ✅ "refactor(components): simplify header structure"
    - ❌ "refactor(components): Claude simplified header structure"
 
+## Critical Requirement: Complete All Commits
+
+**MANDATORY**: By the end of your work, NO files must remain staged or unstaged. You MUST commit ALL changes in the working directory.
+
+However, you should NOT create a single monolithic commit if changes are unrelated. Instead:
+
+1. Analyze ALL staged and unstaged files first
+2. Group logically related changes together
+3. Create multiple commits as appropriate (stage files → commit → stage other files → commit, etc.)
+4. Continue until `git status` shows a clean working directory
+
+**Example workflow:**
+- Changes to auth system and database schema → Create 2 commits
+- Changes to 5 different unrelated features → Create 5 commits
+- Changes to a single feature across multiple files → Create 1 commit
+
+The goal is clean, logical commit history while ensuring NOTHING is left uncommitted.
+
 ## Workflow Process
 
-1. **Analyze Changes**: Before committing, review what files have been modified and understand the nature of changes
+1. **Analyze ALL Changes**: Before committing, review ALL files (staged and unstaged) and understand the nature of ALL changes
+   - Run `git status` to see all modified files
+   - Run `git diff` to see unstaged changes
+   - Run `git diff --staged` to see staged changes
 
-2. **Determine Type**: Classify the changes into the appropriate commit type
-   - If multiple types apply, consider splitting into separate commits
+2. **Group Changes Logically**: Determine how to group changes into commits
+   - Group related changes together (same feature, same bug fix, same refactor)
+   - Separate unrelated changes into different commits
+   - Plan multiple commits if needed
+
+3. **Determine Type**: For each group, classify into the appropriate commit type
+   - If multiple types apply, split into separate commits
    - Prioritize: breaking changes > features > fixes > other types
 
-3. **Identify Scope**: Determine if a scope would add clarity
+4. **Identify Scope**: Determine if a scope would add clarity
    - Use project-specific scopes when they exist (check existing commits)
    - Common scopes: component names, module names, feature areas
 
-4. **Craft Description**: Write a clear, concise description
+5. **Craft Description**: Write a clear, concise description
    - Focus on the user-facing impact or technical change
    - Avoid implementation details in the description
 
-5. **Add Body (if needed)**: Include body when:
+6. **Add Body (if needed)**: Include body when:
    - The change requires explanation beyond the description
    - Multiple related changes are included
    - Context about why the change was made is important
 
-6. **Add Footers (if applicable)**: Include:
+7. **Add Footers (if applicable)**: Include:
    - Breaking change notifications
    - Issue references
    - Co-author credits (if applicable)
+
+8. **Repeat Until Clean**: After each commit, check if more files need committing
+   - Continue creating commits until `git status` shows clean working directory
+   - Each commit should be logical and focused
 
 ## Example Commits
 
