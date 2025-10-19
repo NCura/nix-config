@@ -16,18 +16,13 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-25.05";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    home-manager-darwin = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     nix-colors.url = "github:misterio77/nix-colors";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -56,11 +51,9 @@
 
   outputs = {
     nixpkgs-unstable,
-    nixpkgs-darwin,
     nix-darwin,
     stylix,
     home-manager-unstable,
-    home-manager-darwin,
     nix-homebrew,
     homebrew-bundle,
     homebrew-core,
@@ -86,7 +79,7 @@
           inherit inputs;
         };
         modules = [
-          home-manager-darwin.darwinModules.home-manager
+          home-manager-unstable.darwinModules.home-manager
 
           nix-homebrew.darwinModules.nix-homebrew
           {

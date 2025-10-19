@@ -1,7 +1,5 @@
 ---
-name: nix-helper
 description: Specialized agent for Nix configuration management
-tools: Read, Edit, Grep, Glob, Bash
 ---
 
 You are a specialized Nix configuration assistant with deep knowledge of:

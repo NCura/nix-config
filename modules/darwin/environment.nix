@@ -6,6 +6,6 @@
   nixpkgs.config.allowUnfree = true;
   
   environment.variables = {
-    XDG_CONFIG_HOME = "$HOME";
+    XDG_CONFIG_HOME = "$HOME/.config";
   };
 }

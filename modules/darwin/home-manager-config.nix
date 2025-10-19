@@ -13,7 +13,8 @@ in {
       imports = [
         ../shared
 
-        ../home-manager/gitui.nix
+        ../home-manager/opencode
+        ../shared/ghostty
         ./zsh.nix
       ];
       home = {

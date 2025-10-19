@@ -1,11 +1,15 @@
-{pkgs, ...}: let
+{pkgs, lib, ...}: let
+  # Use ghostty-bin on Darwin, ghostty on Linux
+  ghosttyPkg = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
+  
   # Script to open files in nvim within ghostty
   ghostty-nvim = pkgs.writeShellScriptBin "ghostty-nvim" ''
-    exec ${pkgs.ghostty}/bin/ghostty -e ${pkgs.neovim}/bin/nvim "$@"
+    exec ${ghosttyPkg}/bin/ghostty -e ${pkgs.neovim}/bin/nvim "$@"
   '';
 in {
   programs.ghostty = {
     enable = true;
+    package = ghosttyPkg;
     enableBashIntegration = true;
     installVimSyntax = true;
     settings = {
@@ -18,7 +22,7 @@ in {
     };
   };
 
-  home.packages = [ghostty-nvim];
+  home.packages = [ghostty-nvim] ++ lib.optionals pkgs.stdenv.isDarwin [ghosttyPkg];
 
   # Create custom desktop file for nvim in ghostty
   xdg.dataFile."applications/ghostty-nvim.desktop".text = ''
