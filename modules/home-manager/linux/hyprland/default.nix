@@ -20,6 +20,14 @@ in
     ./plugins/pyprland.nix
   ];
 
+  # Auto-start Hyprland on TTY1
+  programs.bash.profileExtra = ''
+    # Login shell - auto-start Hyprland on TTY1
+    if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+      exec Hyprland
+    fi
+  '';
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;

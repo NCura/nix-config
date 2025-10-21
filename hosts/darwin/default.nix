@@ -26,6 +26,7 @@ in
   ];
 
   home-manager.users.nicolascura.imports = [
+    (homeShared + /bash.nix)
     (homeShared + /claude-code)
     (homeShared + /fastfetch)
     (homeShared + /ghostty)
@@ -34,6 +35,5 @@ in
     (homeShared + /neovim-nix)
     (homeShared + /oh-my-posh)
     (homeShared + /ssh.nix)
-    (homeShared + /zsh.nix)
   ];
 }

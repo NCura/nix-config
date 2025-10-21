@@ -43,6 +43,7 @@ in
   ];
 
   home-manager.users.nicolas.imports = [
+    (homeShared + /bash.nix)
     (homeShared + /claude-code)
     (homeShared + /fastfetch)
     (homeShared + /ghostty)
@@ -54,8 +55,6 @@ in
     (homeShared + /ssh.nix)
     (homeShared + /tmux.nix)
     (homeShared + /zoxide.nix)
-
-    (homeLinux + /bash.nix)
     (homeLinux + /default-applications.nix)
     (homeLinux + /dropbox.nix)
     (homeLinux + /files)
