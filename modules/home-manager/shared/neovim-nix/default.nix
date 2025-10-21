@@ -56,6 +56,15 @@
       ];
 
       plugins = with pkgs.vimPlugins; [
+        # Colorscheme
+        (addWithFile "catppuccin-nvim")
+
+        # LSP progress UI
+        (addWithFile "fidget-nvim")
+
+        # File explorer
+        (addWithFile "oil-nvim")
+
         # Treesitter with all grammars
         nvim-treesitter.withAllGrammars
         nvim-treesitter-textobjects

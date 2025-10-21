@@ -82,3 +82,8 @@ map("v", "<leader>/", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", "Search selection"
 -- Diagnostics
 map("n", "<leader>e", vim.diagnostic.open_float, "Show diagnostic [E]rror messages")
 map("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostic [Q]uickfix list")
+
+-- Oil.nvim file explorer
+map("n", "-", function()
+	require("oil").toggle_float()
+end, "Open oil file explorer")
