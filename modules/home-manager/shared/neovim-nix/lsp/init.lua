@@ -26,13 +26,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- Configure Nix LSP using the new Neovim 0.11 pattern
--- Note: Using bracket notation because 'nil' is a reserved keyword in Lua
-vim.lsp.config['nil'] = {
-	cmd = { "nil" },
-	filetypes = { "nix" },
-	root_markers = { { "flake.nix", "flake.lock" }, ".git" },
-}
-
--- Enable the Nix LSP
-vim.lsp.enable('nil')
+-- Configure LSP servers
+-- Server configurations are loaded from lsp/servers/<server_name>.lua via Nix
