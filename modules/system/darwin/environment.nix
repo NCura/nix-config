@@ -3,7 +3,8 @@
   ...
 }:
 {
-  environment.pathsToLink = [ "/share/zsh" ];
+  environment.pathsToLink = [ "/share/bash" ];
+  environment.shells = [ pkgs.bash ];
   nixpkgs.config.allowUnfree = true;
 
   environment.variables = {

@@ -5,6 +5,7 @@
     # font.name = "JetBrains Mono";
     # font.size = 14;
     settings = {
+      shell = "/run/current-system/sw/bin/bash";
       scrollback_lines = 2000;
       wheel_scroll_min_lines = 1;
       window_padding_width = 0;
@@ -13,6 +14,7 @@
       listen_on = "unix:@mykitty";
       # background_opacity = "1.00";
     };
+    shellIntegration.enableBashIntegration = true;
     keybindings = {
       "ctrl+alt+c" = "copy_or_interrupt";
       "ctrl+alt+v" = "paste_from_clipboard";

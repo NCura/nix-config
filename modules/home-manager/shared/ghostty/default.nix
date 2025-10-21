@@ -16,6 +16,7 @@ in
     installVimSyntax = true;
     settings = {
       # font-size = 16;
+      #command = "/run/current-system/sw/bin/bash";
       working-directory = "home";
       confirm-close-surface = "true";
       keybind = [ "ctrl+f=write_scrollback_file:open" ];
