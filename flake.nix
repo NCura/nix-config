@@ -53,69 +53,67 @@
     };
   };
 
-  outputs =
-    {
-      nixpkgs-unstable,
-      nix-darwin,
-      stylix,
-      home-manager-unstable,
-      nix-homebrew,
-      homebrew-bundle,
-      homebrew-core,
-      homebrew-cask,
-      rust-overlay,
-      ...
-    }@inputs:
-    {
-      nixosConfigurations = {
-        nixos = nixpkgs-unstable.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            # Add rust-overlay
-            {
-              nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            }
-
-            stylix.nixosModules.stylix
-            home-manager-unstable.nixosModules.home-manager
-            ./hosts/nixos
-          ];
+  outputs = {
+    nixpkgs-unstable,
+    nix-darwin,
+    stylix,
+    home-manager-unstable,
+    nix-homebrew,
+    homebrew-bundle,
+    homebrew-core,
+    homebrew-cask,
+    rust-overlay,
+    ...
+  } @ inputs: {
+    nixosConfigurations = {
+      nixos = nixpkgs-unstable.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
         };
-      };
+        modules = [
+          # Add rust-overlay
+          {
+            nixpkgs.overlays = [rust-overlay.overlays.default];
+          }
 
-      darwinConfigurations = {
-        NCMBP14 = nix-darwin.lib.darwinSystem {
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            # Add rust-overlay
-            {
-              nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            }
-
-            home-manager-unstable.darwinModules.home-manager
-
-            nix-homebrew.darwinModules.nix-homebrew
-            {
-              nix-homebrew = {
-                enable = true;
-                enableRosetta = true;
-                user = "nicolascura";
-                taps = {
-                  "homebrew/homebrew-core" = homebrew-core;
-                  "homebrew/homebrew-cask" = homebrew-cask;
-                  "homebrew/homebrew-bundle" = homebrew-bundle;
-                };
-                mutableTaps = false;
-                autoMigrate = true;
-              };
-            }
-            ./hosts/darwin
-          ];
-        };
+          stylix.nixosModules.stylix
+          home-manager-unstable.nixosModules.home-manager
+          ./hosts/nixos
+        ];
       };
     };
+
+    darwinConfigurations = {
+      NCMBP14 = nix-darwin.lib.darwinSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          # Add rust-overlay
+          {
+            nixpkgs.overlays = [rust-overlay.overlays.default];
+          }
+
+          home-manager-unstable.darwinModules.home-manager
+
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = true;
+              user = "nicolascura";
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+                "homebrew/homebrew-bundle" = homebrew-bundle;
+              };
+              mutableTaps = false;
+              autoMigrate = true;
+            };
+          }
+          ./hosts/darwin
+        ];
+      };
+    };
+  };
 }
