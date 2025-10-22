@@ -73,6 +73,11 @@
             inherit inputs;
           };
           modules = [
+            # Add rust-overlay
+            {
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            }
+
             stylix.nixosModules.stylix
             home-manager-unstable.nixosModules.home-manager
             ./hosts/nixos
