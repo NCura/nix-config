@@ -32,7 +32,7 @@ in
     (homeShared + /ghostty)
     (homeShared + /git)
     (homeShared + /kitty)
-    (homeShared + /neovim-nix)
+    (homeShared + /neovim)
     (homeShared + /oh-my-posh)
     (homeShared + /ssh.nix)
   ];
