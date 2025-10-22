@@ -31,6 +31,10 @@
       inputs.hyprland.follows = "hyprland";
     };
     stylix.url = "github:danth/stylix";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
@@ -59,6 +63,7 @@
       homebrew-bundle,
       homebrew-core,
       homebrew-cask,
+      rust-overlay,
       ...
     }@inputs:
     {
@@ -81,6 +86,11 @@
             inherit inputs;
           };
           modules = [
+            # Add rust-overlay
+            {
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            }
+
             home-manager-unstable.darwinModules.home-manager
 
             nix-homebrew.darwinModules.nix-homebrew

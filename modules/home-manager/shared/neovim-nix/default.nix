@@ -6,10 +6,21 @@
 {
   programs.neovim =
     let
+      # Import custom plugin packages not in nixpkgs
+      customPlugins = import ./plugin-packages { inherit pkgs; };
+
+      # Helper for nixpkgs plugins with config files
       addWithFile = pluginName: {
         plugin = pkgs.vimPlugins.${pluginName};
         type = "lua";
         config = builtins.readFile (toString ./. + "/plugins/" + pluginName + ".lua");
+      };
+
+      # Helper for custom plugins with config files
+      addCustomWithFile = plugin: configName: {
+        inherit plugin;
+        type = "lua";
+        config = builtins.readFile (toString ./. + "/plugins/" + configName + ".lua");
       };
 
       # Helper to setup LSP servers from lsp/servers/*.lua
@@ -53,6 +64,9 @@
         nixfmt-rfc-style # Nix
         stylua # Lua
         rustfmt # Rust
+
+        ### Git tools
+        lazygit # TUI for git
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -64,6 +78,15 @@
 
         # File explorer
         (addWithFile "oil-nvim")
+
+        # Fuzzy file finder
+        (addCustomWithFile customPlugins.fff-nvim "fff-nvim")
+
+        # Git integration
+        (addWithFile "lazygit-nvim")
+
+        # Utilities
+        (addWithFile "snacks-nvim")
 
         # Treesitter with all grammars
         nvim-treesitter.withAllGrammars
