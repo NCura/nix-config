@@ -5,7 +5,12 @@ require("conform").setup({
 	},
 	formatters_by_ft = {
 		lua = { "stylua" },
-		nix = { "nixfmt" },
+		javascript = { { "prettierd", "prettier" } },
+		json = { "jsonfmt" },
+		nix = { "nixfmt", "nixpkgs-fmt", "alejandra" },
+		html = { "htmlbeautifier" },
+		php = { "php_cs_fixer" },
+		toml = { "taplo" },
 		rust = { "rustfmt" },
 	},
 })

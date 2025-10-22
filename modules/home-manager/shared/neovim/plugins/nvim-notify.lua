@@ -2,26 +2,23 @@ local notify = require("notify")
 
 -- Configure nvim-notify
 notify.setup({
-	background_colour = "#000000",
-	fps = 30,
-	icons = {
-		DEBUG = "",
-		ERROR = "",
-		INFO = "",
-		TRACE = "✎",
-		WARN = "",
-	},
-	level = 2,
-	minimum_width = 50,
-	render = "default",
-	stages = "fade_in_slide_out",
-	time_formats = {
-		notification = "%T",
-		notification_history = "%FT%T",
-	},
-	timeout = 5000,
-	top_down = true,
+	stages = "static",
+	timeout = 3000,
+	max_height = function()
+		return math.floor(vim.o.lines * 0.75)
+	end,
+	max_width = function()
+		return math.floor(vim.o.columns * 0.75)
+	end,
+	on_open = function(win)
+		vim.api.nvim_win_set_config(win, { zindex = 100 })
+	end,
 })
 
 -- Set as default notify handler
 vim.notify = notify
+
+-- Keymap to dismiss all notifications
+vim.keymap.set("n", "<leader>un", function()
+	require("notify").dismiss({ silent = true, pending = true })
+end, { desc = "Dismiss All Notifications" })

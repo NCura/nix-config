@@ -4,6 +4,7 @@ local builtin = require("telescope.builtin")
 -- Configure telescope
 telescope.setup({
 	defaults = {
+		initial_mode = "normal",
 		mappings = {
 			i = {
 				["<C-u>"] = false,
@@ -20,6 +21,7 @@ telescope.setup({
 
 -- Load extensions
 telescope.load_extension("file_browser")
+telescope.load_extension("notify")
 
 -- Keymaps
 local map = function(keys, func, desc)
@@ -43,3 +45,4 @@ map("<leader>ss", builtin.builtin, "[S]earch [S]elect Telescope")
 map("<leader>sd", builtin.diagnostics, "[S]earch [D]iagnostics")
 map("<leader>sh", builtin.help_tags, "[S]earch [H]elp")
 map("<leader>sk", builtin.keymaps, "[S]earch [K]eymaps")
+map("<leader>sn", ":Telescope notify<CR>", "[S]earch [N]otifications")

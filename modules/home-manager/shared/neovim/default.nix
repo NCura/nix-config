@@ -61,8 +61,16 @@
         rust-analyzer # Rust LSP
 
         ### Formatters
-        nixfmt-rfc-style # Nix
         stylua # Lua
+        prettierd # Javascript
+        jsonfmt # JSON
+        nixfmt-rfc-style # Nix
+        nixpkgs-fmt # Nix
+        alejandra # Nix
+        # htmlbeautifier # HTML
+        php82Packages.php-cs-fixer # PHP
+        shfmt # Shell
+        taplo # TOML
         rustfmt # Rust
 
         ### Git tools
@@ -73,20 +81,25 @@
         # Colorscheme
         (addWithFile "catppuccin-nvim")
 
-        # LSP progress UI
+        # UI
         (addWithFile "fidget-nvim")
+        (addWithFile "lualine-nvim")
+        (addWithFile "nvim-notify")
 
         # File explorer
         (addWithFile "oil-nvim")
 
-        # Fuzzy file finder
+        # Fuzzy finders
         (addCustomWithFile customPlugins.fff-nvim "fff-nvim")
+        (addWithFile "telescope-nvim")
+        telescope-file-browser-nvim
 
         # Git integration
         (addWithFile "lazygit-nvim")
 
         # Utilities
         (addWithFile "snacks-nvim")
+        (addWithFile "conform-nvim")
 
         # Treesitter with all grammars
         nvim-treesitter.withAllGrammars
