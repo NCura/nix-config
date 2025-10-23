@@ -29,5 +29,7 @@
     # project-bwp = "kitty --session bwp & disown";
     # obsidian = "nvim ~/Documents/Obsidian/Core";
     obsidian = "cd ~/Documents/Obsidian/Core && nvim";
+
+    about = "fastfetch";
   };
 }
