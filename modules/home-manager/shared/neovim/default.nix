@@ -111,7 +111,7 @@
         (addWithFile "nvim-spectre")
 
         # Recording
-        (addWithFile "nvim-recorder")
+        # (addWithFile "recorder")  # TODO: not available in nixpkgs
 
         # Markdown
         (addWithFile "obsidian-nvim")

@@ -1,4 +1,4 @@
-require("undotree").setup({})
+-- Undotree is a vim plugin, no lua setup needed
 
 -- Keybind to toggle undotree
-map("n", "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", "Toggle undotree")
+map("n", "<leader>u", ":UndotreeToggle<CR>", "Toggle undotree")

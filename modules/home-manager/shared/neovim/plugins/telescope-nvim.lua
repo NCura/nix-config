@@ -26,7 +26,7 @@ telescope.load_extension("notify")
 -- Buffer and file search
 map("n", "<leader><leader>", builtin.buffers, "[ ] Find existing buffers")
 map("n", "<leader>s.", builtin.oldfiles, "[S]earch Recent Files")
-map("n", "<leader>sf", builtin.find_files, "[S]earch [F]iles")
+-- map("n", "<leader>sf", builtin.find_files, "[S]earch [F]iles")
 
 -- Text search
 map("n", "<leader>sw", builtin.grep_string, "[S]earch current [W]ord")

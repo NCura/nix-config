@@ -5,4 +5,5 @@ require("obsidian").setup({
 			path = "~/Documents/Obsidian/Core",
 		},
 	},
+	legacy_commands = false,
 })
