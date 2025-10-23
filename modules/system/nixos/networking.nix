@@ -1,9 +1,4 @@
 {
-  config,
-  pkgs,
-  ...
-}:
-{
   networking.hosts = {
     "192.168.1.73" = [
       "local-website.com"
@@ -12,7 +7,7 @@
     ];
   };
 
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
   networking = {
     networkmanager.enable = true;
     hostName = "nixos";
@@ -24,7 +19,14 @@
       "8.8.8.8"
       "8.8.4.4"
     ];
-    firewall.allowedTCPPorts = [ 3000 ];
+    firewall.allowedTCPPorts = [
+      3000
+      3002
+      3004
+      3006
+      3008
+      3010
+    ];
     # firewall.extraCommands = ''
     #   iptables -A INPUT -p tcp --dport 3000 -s 192.168.1.42 -j ACCEPT
     #   iptables -A INPUT -p tcp --dport 3000 -s 192.168.1.54 -j ACCEPT
