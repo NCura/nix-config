@@ -78,6 +78,9 @@
       ];
 
       plugins = with pkgs.vimPlugins; [
+        # Dependencies
+        plenary-nvim
+
         # Colorscheme
         (addWithFile "catppuccin-nvim")
 
@@ -85,6 +88,7 @@
         (addWithFile "fidget-nvim")
         (addWithFile "lualine-nvim")
         (addWithFile "nvim-notify")
+        (addWithFile "which-key-nvim")
 
         # File explorer
         (addWithFile "oil-nvim")
@@ -96,6 +100,22 @@
 
         # Git integration
         (addWithFile "lazygit-nvim")
+
+        # Editing enhancements
+        (addWithFile "nvim-surround")
+        (addWithFile "nvim-autopairs")
+        (addWithFile "nvim-ts-autotag")
+
+        # History and search
+        (addWithFile "undotree")
+        (addWithFile "nvim-spectre")
+
+        # Recording
+        (addWithFile "nvim-recorder")
+
+        # Markdown
+        (addWithFile "obsidian-nvim")
+        (addWithFile "markview-nvim")
 
         # Utilities
         (addWithFile "snacks-nvim")

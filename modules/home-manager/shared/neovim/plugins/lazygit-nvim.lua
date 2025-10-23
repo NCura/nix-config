@@ -2,4 +2,5 @@
 -- https://github.com/kdheepak/lazygit.nvim
 
 -- Keymaps
-vim.keymap.set("n", "<C-A-g>", ":LazyGit<CR>", { desc = "Toggle LazyGit" })
+map("n", "<leader>gs", vim.cmd.Git, "Git status")
+map("n", "<C-A-g>", ":LazyGit<CR>", "Toggle LazyGit")

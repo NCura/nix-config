@@ -24,6 +24,9 @@ snacks.setup({
 })
 
 -- Terminal keybindings
-vim.keymap.set({ "n", "t" }, "<C-A-t>", function()
+map("n", "<C-A-t>", function()
 	snacks.terminal()
-end, { desc = "Toggle terminal" })
+end, "Toggle terminal")
+map("t", "<C-A-t>", function()
+	snacks.terminal()
+end, "Toggle terminal")

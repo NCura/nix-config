@@ -23,26 +23,22 @@ telescope.setup({
 telescope.load_extension("file_browser")
 telescope.load_extension("notify")
 
--- Keymaps
-local map = function(keys, func, desc)
-	vim.keymap.set("n", keys, func, { desc = desc })
-end
-
 -- Buffer and file search
-map("<leader><leader>", builtin.buffers, "[ ] Find existing buffers")
-map("<leader>s.", builtin.oldfiles, "[S]earch Recent Files")
+map("n", "<leader><leader>", builtin.buffers, "[ ] Find existing buffers")
+map("n", "<leader>s.", builtin.oldfiles, "[S]earch Recent Files")
+map("n", "<leader>sf", builtin.find_files, "[S]earch [F]iles")
 
 -- Text search
-map("<leader>sw", builtin.grep_string, "[S]earch current [W]ord")
-map("<leader>sg", builtin.live_grep, "[S]earch by [G]rep")
+map("n", "<leader>sw", builtin.grep_string, "[S]earch current [W]ord")
+map("n", "<leader>sg", builtin.live_grep, "[S]earch by [G]rep")
 
 -- Navigation
-map("<leader>sr", builtin.resume, "[S]earch [R]esume")
-map("<leader>sp", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", "[S]earch [P]roject")
+map("n", "<leader>sr", builtin.resume, "[S]earch [R]esume")
+map("n", "<leader>sp", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", "[S]earch [P]roject")
 
 -- Telescope features
-map("<leader>ss", builtin.builtin, "[S]earch [S]elect Telescope")
-map("<leader>sd", builtin.diagnostics, "[S]earch [D]iagnostics")
-map("<leader>sh", builtin.help_tags, "[S]earch [H]elp")
-map("<leader>sk", builtin.keymaps, "[S]earch [K]eymaps")
-map("<leader>sn", ":Telescope notify<CR>", "[S]earch [N]otifications")
+map("n", "<leader>ss", builtin.builtin, "[S]earch [S]elect Telescope")
+map("n", "<leader>sd", builtin.diagnostics, "[S]earch [D]iagnostics")
+map("n", "<leader>sh", builtin.help_tags, "[S]earch [H]elp")
+map("n", "<leader>sk", builtin.keymaps, "[S]earch [K]eymaps")
+map("n", "<leader>sn", ":Telescope notify<CR>", "[S]earch [N]otifications")

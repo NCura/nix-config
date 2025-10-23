@@ -18,3 +18,8 @@ oil.setup({
 		end,
 	},
 })
+
+-- Keybind to toggle oil
+map("n", "-", function()
+	oil.toggle_float()
+end, "Open oil file explorer")
