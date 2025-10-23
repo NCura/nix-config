@@ -35,6 +35,10 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
@@ -63,6 +67,7 @@
     homebrew-core,
     homebrew-cask,
     rust-overlay,
+    sops-nix,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -78,6 +83,17 @@
 
           stylix.nixosModules.stylix
           home-manager-unstable.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+          {
+            sops = {
+              age.keyFile = "/home/nicolas/.config/sops/age/keys.txt";
+              defaultSopsFile = ./secrets/surreal.yaml;
+              secrets = {
+                user = {};
+                password = {};
+              };
+            };
+          }
           ./hosts/nixos
         ];
       };

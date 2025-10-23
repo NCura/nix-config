@@ -1,3 +1,6 @@
+.*
+!.gitignore
+!.sops.yaml
+
 assets/wallpapers/
 result
-.DS_Store
