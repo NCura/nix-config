@@ -21,9 +21,10 @@
     [scratchpads.chat]
     animation = "fromTop"
     # command = "chromium --class chat --app=https://chat.openai.com"
-    command = "kitty --class chat"
-    class = "chat"
+    command = "ghostty --title=chat-float -e opencode"
+    class = "com.mitchellh.ghostty"
     size = "33% 75%"
+    unfloat = "false"
 
     [scratchpads.obsidian]
     animation = "fromTop"
