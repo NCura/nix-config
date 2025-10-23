@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -21,6 +20,10 @@
       bind -r J resize-pane -D 5
       bind -r K resize-pane -U 5
       bind -r L resize-pane -R 5
+
+      # Show session list (override any reverseSplit behavior)
+      unbind s
+      bind s display-popup -E "tmux list-sessions -F '#{session_name}' | fzf --reverse --header jump-to-session | xargs tmux switch-client -t"
     '';
     keyMode = "vi";
     mouse = true;
