@@ -2,12 +2,10 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   startupScriptPath = ./startup.sh;
   startupScript = pkgs.writeScriptBin "startup-hyprland" (builtins.readFile startupScriptPath);
-in
-{
+in {
   imports = [
     ./animations.nix
     ./decoration.nix
@@ -47,17 +45,19 @@ in
         # "DP-3, 7680x2160@240, auto, auto"
         ", highres, auto, 1"
       ];
+      windowrulev2 = [
+        "float,class:^(?i)chat$"
+        "float,title:^chat-float$"
+        "size 2560 1440,title:NC"
+        "move 2560 360,title:NC"
+        "workspace unset,class:^(com\\.mitchellh\\.ghostty)$"
+      ];
     };
     extraConfig = ''
       # exec-once = swaybg -c 0b1826 &
       exec-once = $POLKIT_BIN
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      windowrulev2 = float,class:^(?i)chat$
-      # windowrulev2 = float, title:NC
-      windowrulev2 = size 2560 1440, title:NC
-      windowrulev2 = move 2560 360, title:NC
-      windowrulev2 = workspace unset,class:^(com\.mitchellh\.ghostty)$
     '';
   };
 
