@@ -24,6 +24,10 @@
       # Show session list (override any reverseSplit behavior)
       unbind s
       bind s display-popup -E "tmux list-sessions -F '#{session_name}' | fzf --reverse --header jump-to-session | xargs tmux switch-client -t"
+
+      # Pane borders - make active pane more visible
+      set -g pane-border-style 'fg=colour238'
+      set -g pane-active-border-style 'fg=colour51'
     '';
     keyMode = "vi";
     mouse = true;
