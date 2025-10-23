@@ -18,9 +18,10 @@
       "$mod, P, exec, pypr toggle obsidian && hyprctl dispatch bringactivetotop"
 
       # "$mod, code:23, ,"
-      "$mod, A, exec, web-search"
+      # "$mod, A, exec, web-search"
+      "$mod, A, exec, pypr toggle chat && hyprctl dispatch bringactivetotop"
       "$mod, S, exec, screenshootin"
-      "$mod, D, exec, pypr toggle chat && hyprctl dispatch bringactivetotop"
+      # "$mod, D, exec,"
       "$mod, F, fullscreen,"
       # "$mod, G, ,"
       "$mod, H, movefocus, l"
