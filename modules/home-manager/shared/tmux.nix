@@ -43,6 +43,6 @@
     ];
     reverseSplit = true;
     # shortcut = "b";
-    prefix = "M-C-t";
+    prefix = "M-C-j";
   };
 }
