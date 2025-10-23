@@ -24,9 +24,9 @@ snacks.setup({
 })
 
 -- Terminal keybindings
-map("n", "<C-A-t>", function()
+map("n", "<leader>st", function()
 	snacks.terminal()
 end, "Toggle terminal")
-map("t", "<C-A-t>", function()
+map("t", "<leader>st", function()
 	snacks.terminal()
 end, "Toggle terminal")
