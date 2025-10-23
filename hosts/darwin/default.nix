@@ -28,6 +28,7 @@ in
   home-manager.users.nicolascura.imports = [
     (homeShared + /bash.nix)
     (homeShared + /claude-code)
+    (homeShared + /direnv)
     (homeShared + /fastfetch)
     (homeShared + /ghostty)
     (homeShared + /git)

@@ -11,7 +11,6 @@
     "openssl-1.1.1w" # sublime4
   ];
 
-  programs.direnv.enable = true;
   programs.ydotool.enable = true;
   # programs.nix-ld.enable = true;
 

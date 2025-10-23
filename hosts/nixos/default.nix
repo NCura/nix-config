@@ -44,6 +44,7 @@ in {
   home-manager.users.nicolas.imports = [
     (homeShared + /bash.nix)
     (homeShared + /claude-code)
+    (homeShared + /direnv)
     (homeShared + /fastfetch)
     (homeShared + /ghostty)
     (homeShared + /git)
