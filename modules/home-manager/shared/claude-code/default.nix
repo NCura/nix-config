@@ -15,9 +15,11 @@
     agents = {
       nix-helper = ./agents/nix-helper.md;
       git-commit-manager = ./agents/git-commit-manager.md;
+      translation-manager = ./agents/translation-manager.md;
     };
     commands = {
       commit = ./commands/commit.md;
+      translate-page-text = ./commands/translate-page-text.md;
     };
   };
 
