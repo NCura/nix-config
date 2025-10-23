@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -22,7 +21,7 @@
     '';
     initExtra = ''
       # Interactive shell
-      fastfetch
+      # fastfetch
     '';
   };
 }
