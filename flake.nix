@@ -76,7 +76,6 @@
           inherit inputs;
         };
         modules = [
-          # Add rust-overlay
           {
             nixpkgs.overlays = [rust-overlay.overlays.default];
           }
@@ -105,7 +104,6 @@
           inherit inputs;
         };
         modules = [
-          # Add rust-overlay
           {
             nixpkgs.overlays = [rust-overlay.overlays.default];
           }
