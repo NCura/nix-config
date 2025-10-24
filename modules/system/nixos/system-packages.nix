@@ -2,8 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "freeimage-unstable-2021-11-01"
@@ -11,84 +10,32 @@
     "openssl-1.1.1w" # sublime4
   ];
 
-  programs.ydotool.enable = true;
-  # programs.nix-ld.enable = true;
-
   nixpkgs.overlays = [
     (final: prev: {
       liquidctl = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.liquidctl;
-
-      surrealist = prev.callPackage ./packages/surrealist.nix { };
+      surrealist = prev.callPackage ./packages/surrealist.nix {};
     })
   ];
 
-  # To search, run: nix search wget
   environment.systemPackages = with pkgs; [
-    vim
-    neovim
-    micro
-    wget
-    curl
-    git
-    eza
-    fzf
-    atuin
-    bat
-    zip
-    unzip
-    btop
-    htop
-    glances
+    # Clipboard and display (Wayland-specific)
     wl-clipboard
+    wlr-randr
+
+    # Hardware tools (Linux-specific)
     lm_sensors
     liquidctl
-    wlr-randr
-    ripgrep
-    sshfs
-    lazygit
-    ripgrep
     v4l-utils
-    polkit_gnome
-    linuxKernel.packages.linux_6_6.xone
-    #   material-icons
-    nss # for Bazecor
-    nspr # for Bazecor
-    atk
-    psmisc # for killall
-    jq # A lightweight and flexible command-line JSON processor
-    openssl
-    cmake
-    gnumake
-    gccgo
-    # cargo
-    nodejs_22
-    nodePackages.npm
-    # gnome.adwaita-icon-theme
+
+    # Desktop/GUI applications (Linux-specific)
     wineWowPackages.waylandFull
     bazecor
-    trashy
-    devenv
-    lsof
-    xh
-    imapsync
-    dig
-    # code-cursor
-    tailscale
-    traceroute
-    dnsutils
-    net-tools
-    inetutils
     surrealist
-  ];
 
-  fonts.packages = with pkgs; [
-    jetbrains-mono
-    nerd-fonts.jetbrains-mono
-    noto-fonts-color-emoji
-    symbola
-    noto-fonts-cjk-serif
-    noto-fonts-cjk-sans
-    noto-fonts
-    noto-fonts-extra
+    # Desktop environment (Linux-specific)
+    polkit_gnome
+
+    # Kernel modules and drivers (Linux-specific)
+    linuxKernel.packages.linux_6_6.xone
   ];
 }

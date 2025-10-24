@@ -1,7 +1,25 @@
 {pkgs, ...}: {
+  imports = [
+    ./aliases.nix
+  ];
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
+    historySize = 1000000;
+    historyFileSize = 10000000;
+    historyControl = [
+      "erasedups"
+      "ignorespace"
+    ];
+    historyIgnore = [
+      "ll"
+      "la"
+      "cd"
+      "pwd"
+      "exit"
+      "clear"
+    ];
     bashrcExtra = ''
       set -o vi
       # All shells

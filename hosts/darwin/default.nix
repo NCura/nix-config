@@ -26,15 +26,26 @@ in
   ];
 
   home-manager.users.nicolascura.imports = [
-    (homeShared + /bash.nix)
+    (homeShared + /atuin)
+    (homeShared + /bash)
+    (homeShared + /bat)
+    (homeShared + /btop)
     (homeShared + /claude-code)
+    (homeShared + /dircolors)
     (homeShared + /direnv)
+    (homeShared + /eza)
     (homeShared + /fastfetch)
+    (homeShared + /fd)
+    (homeShared + /fzf)
     (homeShared + /ghostty)
     (homeShared + /git)
+    (homeShared + /htop)
+    (homeShared + /jq)
     (homeShared + /kitty)
     (homeShared + /neovim)
+    (homeShared + /nix-search.nix)
     (homeShared + /oh-my-posh)
+    (homeShared + /ripgrep)
     (homeShared + /ssh.nix)
   ];
 }
