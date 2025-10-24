@@ -28,6 +28,9 @@
       # Pane borders - make active pane more visible
       set -g pane-border-style 'fg=colour238'
       set -g pane-active-border-style 'fg=colour51'
+
+      # Enable focus events for Neovim autoread
+      set -g focus-events on
     '';
     keyMode = "vi";
     mouse = true;
