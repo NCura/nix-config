@@ -4,11 +4,15 @@
     enable = true;
     port = 7681;
 
+    # Allow clients to write to the terminal (true for interactive, false for read-only)
+    writeable = true;
+
     # Security settings
     checkOrigin = true;
 
     # Network settings
-    interface = "127.0.0.1"; # Only allow local connections by default
+    # Bind to all interfaces (firewall will restrict access to VPN only)
+    interface = null;
 
     # Terminal command to run
     # entrypoint = [ "${pkgs.bash}/bin/bash" ];
@@ -28,6 +32,6 @@
     # passwordFile = "/path/to/password/file";
   };
 
-  # Optional: Open firewall port if needed
-  # networking.firewall.allowedTCPPorts = [ 7681 ];
+  # Open firewall port only for the wireguard interface (VPN access)
+  networking.firewall.interfaces.wg-infomaniak.allowedTCPPorts = [ 7681 ];
 }
