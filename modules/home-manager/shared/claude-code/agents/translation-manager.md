@@ -60,6 +60,8 @@ curl -X POST "[url]" \
   -d "SELECT id, translations FROM page_text;"
 ```
 
+**Important**: Skip any records where the `translations` field is `null` or empty. These records don't have source content to translate.
+
 ### 3. Translation Modes
 
 **Mode: "translate"** (default)
@@ -82,15 +84,24 @@ curl -X POST "[url]" \
 
 For each record needing translation:
 
-1. **Extract source text**: Get the text in source_language (typically English)
+1. **Filter records**: Skip records where `translations` is `null` or empty (no source content)
 
-2. **Translate to target languages**:
+2. **Extract source text**: Get the text in source_language (typically English)
+
+3. **Translate to target languages**:
    - Translate the source text to each missing target language
    - Maintain the same tone and context
    - Keep formatting consistent (e.g., if source uses quotes, target should too)
    - Consider web context (these are website texts, not literary translations)
 
-3. **Update record via SurrealDB**:
+4. **Update records via SurrealDB**:
+   - You can batch multiple UPDATE statements in a single curl command (up to batch_size)
+   - Separate each statement with a semicolon
+   - Format with proper indentation for better readability
+   - **CRITICAL**: Only include target languages in the MERGE, NEVER include the source language
+   - For example, if translating from `en` to `fr` and `es`, only include `fr` and `es` in the MERGE
+   - Do NOT include the source language (en) even if you read it - this prevents accidental modifications
+   - **CRITICAL**: Use HEREDOC with single quotes `<<'EOF'` and do NOT escape double quotes inside it
 ```bash
 curl -X POST "[url]" \
   -u "user:password" \
@@ -98,7 +109,50 @@ curl -X POST "[url]" \
   -H "Surreal-DB: [database]" \
   -H "Accept: application/json" \
   -H "Content-Type: text/plain" \
-  -d "UPDATE type::record(\"page_text:xxx\") MERGE { translations: { fr: \"...\", es: \"...\" } };"
+  -d "$(cat <<'EOF'
+UPDATE type::record("page_text:xxx") MERGE {
+  translations: {
+    fr: "...",
+    es: "..."
+  }
+};
+UPDATE type::record("page_text:yyy") MERGE {
+  translations: {
+    fr: "...",
+    es: "..."
+  }
+};
+UPDATE type::record("page_text:zzz") MERGE {
+  translations: {
+    fr: "...",
+    es: "..."
+  }
+};
+EOF
+)"
+```
+
+**Examples of WRONG approaches** (DO NOT DO THIS):
+```bash
+# WRONG #1 - includes source language (en)
+UPDATE type::record("page_text:xxx") MERGE {
+  translations: {
+    en: "...",  # ❌ NEVER include source language
+    fr: "...",
+    es: "..."
+  }
+};
+
+# WRONG #2 - escaping quotes inside HEREDOC
+-d "$(cat <<'EOF'
+UPDATE type::record(\"page_text:xxx\") MERGE {  # ❌ Do NOT escape quotes
+  translations: {
+    fr: \"...\",  # ❌ Do NOT escape quotes
+    es: \"...\"   # ❌ Do NOT escape quotes
+  }
+};
+EOF
+)"
 ```
 
 ### 5. Batch Processing
@@ -132,6 +186,7 @@ Results:
   ✓ Records translated: X
   ✓ Translations added: X (Y per language)
   ⚠ Records skipped (already complete): X
+  ⚠ Records skipped (null/empty translations): X
   ✗ Failed records: X
 
 Failed records (if any):
@@ -161,13 +216,21 @@ When translating:
 ## Important Notes
 
 - **Never hardcode credentials**: Always use sops to decrypt
-- **Always use HEREDOC for SQL**: Prevents quoting issues
+- **Always use HEREDOC with single quotes for SQL**: Use `<<'EOF'` (with single quotes) and do NOT escape double quotes inside
 ```bash
+# Correct - no escaping needed inside HEREDOC
 curl ... -d "$(cat <<'EOF'
-UPDATE ...
+UPDATE type::record("page_text:xxx") MERGE {
+  translations: {
+    fr: "French text",
+    es: "Spanish text"
+  }
+};
 EOF
 )"
 ```
+- **NEVER include source language in MERGE**: Only include target languages (e.g., fr, es) in the UPDATE statement, never the source language (e.g., en). This prevents accidental modification of the original text.
+- **DO NOT add extra processing to curl commands**: Execute curl commands exactly as shown. Do NOT add `| jq` or any other piping/processing after the curl command. The curl command should stand alone.
 - **Track ALL progress**: Use TodoWrite extensively so user knows what's happening
 - **Be thorough**: Don't skip records unless mode dictates it
 - **Verify updates**: After updating, optionally verify the update succeeded
