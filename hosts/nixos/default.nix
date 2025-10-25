@@ -32,6 +32,7 @@ in {
     (system + /system.nix)
     (system + /system-packages.nix)
     # (system + /tandoor-recipes.nix)
+    (system + /ttyd)
     # (system + /mattermost.nix)
     # (system + /stirling-pdf.nix)
     # (system + /thunar)
