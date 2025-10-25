@@ -57,77 +57,79 @@
     };
   };
 
-  outputs = {
-    nixpkgs-unstable,
-    nix-darwin,
-    stylix,
-    home-manager-unstable,
-    nix-homebrew,
-    homebrew-bundle,
-    homebrew-core,
-    homebrew-cask,
-    rust-overlay,
-    sops-nix,
-    ...
-  } @ inputs: {
-    nixosConfigurations = {
-      nixos = nixpkgs-unstable.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          {
-            nixpkgs.overlays = [rust-overlay.overlays.default];
-          }
+  outputs =
+    {
+      nixpkgs-unstable,
+      nix-darwin,
+      stylix,
+      home-manager-unstable,
+      nix-homebrew,
+      homebrew-bundle,
+      homebrew-core,
+      homebrew-cask,
+      rust-overlay,
+      sops-nix,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = {
+        nixos = nixpkgs-unstable.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            {
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            }
 
-          stylix.nixosModules.stylix
-          home-manager-unstable.nixosModules.home-manager
-          sops-nix.nixosModules.sops
-          {
-            sops = {
-              age.keyFile = "/home/nicolas/.config/sops/age/keys.txt";
-              defaultSopsFile = ./secrets/surreal.yaml;
-              secrets = {
-                user = {};
-                password = {};
+            stylix.nixosModules.stylix
+            home-manager-unstable.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+            {
+              sops = {
+                age.keyFile = "/home/nicolas/.config/sops/age/keys.txt";
+                defaultSopsFile = ./secrets/surreal.yaml;
+                secrets = {
+                  user = { };
+                  password = { };
+                };
               };
-            };
-          }
-          ./hosts/nixos
-        ];
+            }
+            ./hosts/nixos
+          ];
+        };
+      };
+
+      darwinConfigurations = {
+        NCMBP14 = nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            {
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            }
+
+            home-manager-unstable.darwinModules.home-manager
+
+            nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                enable = true;
+                enableRosetta = true;
+                user = "nicolascura";
+                taps = {
+                  "homebrew/homebrew-core" = homebrew-core;
+                  "homebrew/homebrew-cask" = homebrew-cask;
+                  "homebrew/homebrew-bundle" = homebrew-bundle;
+                };
+                mutableTaps = false;
+                autoMigrate = true;
+              };
+            }
+            ./hosts/darwin
+          ];
+        };
       };
     };
-
-    darwinConfigurations = {
-      NCMBP14 = nix-darwin.lib.darwinSystem {
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          {
-            nixpkgs.overlays = [rust-overlay.overlays.default];
-          }
-
-          home-manager-unstable.darwinModules.home-manager
-
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = true;
-              user = "nicolascura";
-              taps = {
-                "homebrew/homebrew-core" = homebrew-core;
-                "homebrew/homebrew-cask" = homebrew-cask;
-                "homebrew/homebrew-bundle" = homebrew-bundle;
-              };
-              mutableTaps = false;
-              autoMigrate = true;
-            };
-          }
-          ./hosts/darwin
-        ];
-      };
-    };
-  };
 }

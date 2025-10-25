@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "freeimage-unstable-2021-11-01"
@@ -13,7 +14,7 @@
   nixpkgs.overlays = [
     (final: prev: {
       liquidctl = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.liquidctl;
-      surrealist = prev.callPackage ./packages/surrealist.nix {};
+      surrealist = prev.callPackage ./packages/surrealist.nix { };
     })
   ];
 

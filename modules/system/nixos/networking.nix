@@ -7,7 +7,7 @@
     ];
   };
 
-  boot.supportedFilesystems = ["ntfs"];
+  boot.supportedFilesystems = [ "ntfs" ];
   networking = {
     networkmanager.enable = true;
     hostName = "nixos";

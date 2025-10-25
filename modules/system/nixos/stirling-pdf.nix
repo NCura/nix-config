@@ -21,5 +21,5 @@
   };
 
   # Optional: Open firewall for Stirling PDF
-  networking.firewall.allowedTCPPorts = [9081];
+  networking.firewall.allowedTCPPorts = [ 9081 ];
 }

@@ -30,5 +30,5 @@
   };
 
   # Optional: Open firewall for Mattermost
-  networking.firewall.allowedTCPPorts = [8065];
+  networking.firewall.allowedTCPPorts = [ 8065 ];
 }

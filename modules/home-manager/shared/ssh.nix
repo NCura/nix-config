@@ -13,12 +13,14 @@ in
     enableDefaultConfig = false; # Disable default config to avoid deprecation warning
 
     # Automatically add SSH keys to agent and use macOS keychain (macOS only)
-    extraConfig = lib.optionalString pkgs.stdenv.isDarwin ''
-      AddKeysToAgent yes
-      UseKeychain yes
-    '' + ''
-      IdentityFile ~/.ssh/infomaniak_nicolas_cura
-    '';
+    extraConfig =
+      lib.optionalString pkgs.stdenv.isDarwin ''
+        AddKeysToAgent yes
+        UseKeychain yes
+      ''
+      + ''
+        IdentityFile ~/.ssh/infomaniak_nicolas_cura
+      '';
 
     # SSH client configuration
     matchBlocks = {
