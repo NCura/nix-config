@@ -40,6 +40,17 @@ in
     doCheck = false;
   };
 
+  nvim-recorder = pkgs.vimUtils.buildVimPlugin {
+    pname = "nvim-recorder";
+    version = "2025-10-25";
+    src = pkgs.fetchFromGitHub {
+      owner = "chrisgrieser";
+      repo = "nvim-recorder";
+      rev = "5e72567e5d43c0b81b179df8aa3135645fc91a38";
+      sha256 = "sha256-57D8VOSSK1hFljLmA2zXQO1Sd7b5LsMFZH5SYO3CS9c=";
+    };
+  };
+
   # Add more custom plugins here as needed
   # example-plugin = pkgs.vimUtils.buildVimPlugin {
   #   pname = "example-plugin";
