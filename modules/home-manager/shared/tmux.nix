@@ -6,6 +6,9 @@
     # customPaneNavigationAndResize = true;
     # disableConfirmationPrompt = true;
     extraConfig = ''
+      # Remove escape key delay for Neovim
+      set -sg escape-time 0
+
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf
 
