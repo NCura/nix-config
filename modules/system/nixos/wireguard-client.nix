@@ -16,7 +16,10 @@
             # Builder VPN server (backup - when running)
             # publicKey = "1o1JWy+5CmxI8reFHCFjtIGB0U47Kj87S5bprVcjKQ8=";
             # endpoint = "2001:1600:16:11::62:51820";
-            allowedIPs = [ "10.0.1.0/24" ];
+            allowedIPs = [
+              "10.0.1.0/24" # Internal services
+              "192.168.2.0/24" # VPN clients (peer-to-peer)
+            ];
             persistentKeepalive = 25;
           }
         ];

@@ -13,23 +13,36 @@ let
         fi
 
         PRIVATE_KEY=$(cat ${privateKeyFile})
-        OUTPUT_FILE="$HOME/wg-infomaniak.conf"
 
-        cat > "$OUTPUT_FILE" << EOF
+        # Function to generate WireGuard config
+        generate_config() {
+          local ADDRESS=$1
+          local OUTPUT_FILE=$2
+
+          cat > "$OUTPUT_FILE" << EOF
     [Interface]
     PrivateKey = $PRIVATE_KEY
-    Address = 192.168.2.2/32
+    Address = $ADDRESS
     DNS = 10.0.1.5
 
     [Peer]
-    PublicKey = 6HBSPNC/7zKuppBvkvXdMrDBcoaIZ5OFS8Lb8M38ixo=
+    PublicKey = 6HBSPNC/7zKuppBvkvXdMrDBcoaIZ5OFS8Bl8M38ixo=
     Endpoint = 83.228.200.122:51820
-    AllowedIPs = 10.0.1.0/24
+    AllowedIPs = 10.0.1.0/24, 192.168.2.0/24
     PersistentKeepalive = 25
     EOF
+        }
 
-        echo "WireGuard config file generated at: $OUTPUT_FILE"
-        echo "You can now import this file into the WireGuard macOS app"
+        # Generate configs for different devices
+        generate_config "192.168.2.3/32" "$HOME/wg-infomaniak-macos.conf"
+        generate_config "192.168.2.4/32" "$HOME/wg-infomaniak-iphone.conf"
+
+        echo "WireGuard config files generated:"
+        echo "  macOS:  $HOME/wg-infomaniak-macos.conf"
+        echo "  iPhone: $HOME/wg-infomaniak-iphone.conf"
+        echo ""
+        echo "Import the macOS config into the WireGuard macOS app"
+        echo "For iPhone, you can generate a QR code with: qrencode -t ansiutf8 < $HOME/wg-infomaniak-iphone.conf"
   '';
 in
 {
