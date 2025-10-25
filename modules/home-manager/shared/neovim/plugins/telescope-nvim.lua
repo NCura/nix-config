@@ -1,14 +1,25 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
+local actions = require("telescope.actions")
 
 -- Configure telescope
 telescope.setup({
 	defaults = {
-		initial_mode = "normal",
 		mappings = {
 			i = {
 				["<C-u>"] = false,
 				["<C-d>"] = false,
+			},
+		},
+	},
+	pickers = {
+		buffers = {
+			initial_mode = "normal",
+			mappings = {
+				n = {
+					["d"] = actions.delete_buffer,
+					["q"] = actions.close,
+				},
 			},
 		},
 	},
@@ -24,7 +35,11 @@ telescope.load_extension("file_browser")
 telescope.load_extension("notify")
 
 -- Buffer and file search
-map("n", "<leader><leader>", builtin.buffers, "[ ] Find existing buffers")
+map("n", "<leader><leader>", function()
+	builtin.buffers({
+		sort_mru = true,
+	})
+end, "[ ] Find existing buffers")
 map("n", "<leader>s.", builtin.oldfiles, "[S]earch Recent Files")
 -- map("n", "<leader>sf", builtin.find_files, "[S]earch [F]iles")
 
