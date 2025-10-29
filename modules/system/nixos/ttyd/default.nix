@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   services.ttyd = {
     enable = true;
     port = 7681;
@@ -33,5 +36,6 @@
   };
 
   # Open firewall port only for the wireguard interface (VPN access)
-  networking.firewall.interfaces.wg-infomaniak.allowedTCPPorts = [ 7681 ];
+  # networking.firewall.interfaces.wg-infomaniak.allowedTCPPorts = [ 7681 ];
+  networking.firewall.allowedTCPPorts = [7681];
 }

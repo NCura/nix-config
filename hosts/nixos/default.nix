@@ -3,8 +3,7 @@ let
   systemShared = ../../modules/system/shared;
   homeShared = ../../modules/home-manager/shared;
   homeLinux = ../../modules/home-manager/linux;
-in
-{
+in {
   imports = [
     ./hardware-configuration.nix
     (systemShared + /packages.nix)
@@ -33,7 +32,7 @@ in
     (system + /system.nix)
     (system + /system-packages.nix)
     # (system + /tandoor-recipes.nix)
-    (system + /ttyd)
+    # (system + /ttyd)
     # (system + /mattermost.nix)
     # (system + /stirling-pdf.nix)
     # (system + /thunar)
