@@ -5,6 +5,11 @@ local actions = require("telescope.actions")
 -- Configure telescope
 telescope.setup({
 	defaults = {
+		path_display = {
+			filename_first = {
+				reverse_directories = true
+			}
+		},
 		mappings = {
 			i = {
 				["<C-u>"] = false,
