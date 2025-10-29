@@ -1,11 +1,10 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # WireGuard client configuration for connecting to your VPN server
   networking.wireguard = {
     enable = true;
     interfaces = {
       wg-infomaniak = {
-        ips = [ "192.168.2.2/32" ];
+        ips = ["192.168.2.2/32"];
         privateKeyFile = "/home/nicolas/wireguard-keys/nicolas-local-private.key";
 
         peers = [
@@ -18,7 +17,7 @@
             # endpoint = "2001:1600:16:11::62:51820";
             allowedIPs = [
               "10.0.1.0/24" # Internal services
-              "192.168.2.0/24" # VPN clients (peer-to-peer)
+              # "192.168.2.0/24" # VPN clients (peer-to-peer)
             ];
             persistentKeepalive = 25;
           }
@@ -64,5 +63,5 @@
   };
 
   # Make sure dnsmasq is used as the primary resolver
-  networking.nameservers = [ "127.0.0.1" ];
+  networking.nameservers = ["127.0.0.1"];
 }
